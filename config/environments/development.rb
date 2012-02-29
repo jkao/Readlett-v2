@@ -34,4 +34,11 @@ Readlett::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Custom Keys
+  config.after_initialize do
+    Configuration.facebook_id = "279100965470460"
+    Configuration.facebook_secret = "8974c8c282357d0663a4a343e16de593"
+  end
+
 end

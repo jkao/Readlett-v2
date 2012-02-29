@@ -34,4 +34,11 @@ Readlett::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  # Custom Keys
+  config.after_initialize do
+    Configuration.facebook_id = "279100965470460"
+    Configuration.facebook_secret = "8974c8c282357d0663a4a343e16de593"
+  end
+
 end
