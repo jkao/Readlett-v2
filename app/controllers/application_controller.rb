@@ -3,5 +3,4 @@ class ApplicationController < ActionController::Base
 
   def current_account
   end
-
 end
