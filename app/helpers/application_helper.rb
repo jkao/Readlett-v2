@@ -6,8 +6,4 @@ module ApplicationHelper
     content_for(:title) { page_title }
   end
 
-  def readlett_title
-    "Readlett | #{(yield(:title) || "Bookmarking made Simple")}"
-  end
-
 end
