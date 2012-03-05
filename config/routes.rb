@@ -2,8 +2,8 @@ Readlett::Application.routes.draw do
   root :to => "home#index"
 
   # Home Pages
-  match "/index" => "home#index"
-  match "/about" => "home#about"
+  match "/index" => "home#index", :as => :index
+  match "/about" => "home#about", :as => :about
 
   # Authentication
   match "/auth/:provider/callback" => "sessions#create"
