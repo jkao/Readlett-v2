@@ -19,7 +19,6 @@ class CreateInitialSchema < ActiveRecord::Migration
       t.string  :name
       t.string  :url
       t.string  :description
-      t.string  :type
       t.string :disqus_uuid
       t.timestamps
     end
