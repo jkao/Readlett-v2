@@ -65,10 +65,7 @@ Readlett::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  # Custom Keys
-  config.after_initialize do
-    Configuration.facebook_key = "251675274918401"
-    Configuration.facebook_secret = "fc3d516785ab3e822b83d25a97f24c79"
-  end
-
 end
+
+FACEBOOK_ID = "251675274918401"
+FACEBOOK_SECRET = "fc3d516785ab3e822b83d25a97f24c79"

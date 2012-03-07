@@ -26,9 +26,9 @@ class CreateInitialSchema < ActiveRecord::Migration
     create_table :bookmarks_users do |t|
       t.integer :bookmark_id,                 :null => false
       t.integer  :user_id,                    :null => false
-      t.string  :current_url,                 :null => false,
-      t.boolean :finished,                    :null => false, :default => false
-      t.boolean :private,                     :null => false, :default => false
+      t.string  :current_url,                 :null => false
+      t.boolean :finished,                    :default => false, :null => false
+      t.boolean :private,                     :default => false, :null => false
       t.timestamps
     end
 

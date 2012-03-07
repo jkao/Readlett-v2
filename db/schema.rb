@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120229071953) do
+ActiveRecord::Schema.define(:version => 20120306074046) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -22,6 +22,84 @@ ActiveRecord::Schema.define(:version => 20120229071953) do
     t.string   "destroy"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "authorizations", :force => true do |t|
+    t.string  "provider", :null => false
+    t.string  "uid",      :null => false
+    t.integer "user_id",  :null => false
+  end
+
+  create_table "bookmarks", :force => true do |t|
+    t.string   "title",       :limit => 64,                    :null => false
+    t.string   "description"
+    t.string   "link",                                         :null => false
+    t.integer  "user_id",                                      :null => false
+    t.integer  "category_id",                                  :null => false
+    t.boolean  "private",                   :default => false, :null => false
+    t.boolean  "nsfw",                      :default => false, :null => false
+    t.string   "disqus_uuid"
+    t.integer  "views"
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
+  end
+
+  create_table "bookmarks_users", :force => true do |t|
+    t.integer  "bookmark_id",                    :null => false
+    t.integer  "user_id",                        :null => false
+    t.string   "current_url",                    :null => false
+    t.boolean  "finished",    :default => false, :null => false
+    t.boolean  "private",     :default => false, :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
+
+  create_table "categories", :force => true do |t|
+    t.string "code", :null => false
+    t.string "name", :null => false
+  end
+
+  create_table "featured_items", :force => true do |t|
+    t.integer  "bookmark_id", :null => false
+    t.integer  "user_id",     :null => false
+    t.datetime "start",       :null => false
+    t.datetime "end",         :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "pictures_users", :force => true do |t|
+    t.string   "picture",                       :null => false
+    t.string   "uuid",                          :null => false
+    t.integer  "user_id",                       :null => false
+    t.boolean  "deleted",    :default => false, :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  create_table "ratings", :force => true do |t|
+    t.integer  "bookmark_id", :null => false
+    t.integer  "user_id",     :null => false
+    t.integer  "rating",      :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "reports", :force => true do |t|
+    t.integer "complaint_bookmark_id"
+    t.integer "complaint_user_id"
+    t.integer "complainer_user_id"
+    t.string  "reason"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "email",       :limit => 64, :null => false
+    t.string   "name"
+    t.string   "url"
+    t.string   "description"
+    t.string   "disqus_uuid"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
 end

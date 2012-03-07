@@ -42,3 +42,6 @@ Readlett::Application.configure do
   end
 
 end
+
+FACEBOOK_ID = "279100965470460"
+FACEBOOK_SECRET = "8974c8c282357d0663a4a343e16de593"
