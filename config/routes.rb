@@ -8,6 +8,7 @@ Readlett::Application.routes.draw do
   # Authentication
   match "/auth/:provider/callback" => "sessions#create"
   match "/auth/failure" => "sessions#failure"
+  match "/logout" => "sessions#destroy"
 
   # Default route
   # match '/:controller(/:action(/:id))'

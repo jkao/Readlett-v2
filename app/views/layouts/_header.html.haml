@@ -1,5 +1,13 @@
-%h3 Readlett
-%ul
-  %li List 1
-  %li List 2
-  %li List 3
+.navbar.navbar-fixed-top
+  .navbar-inner
+    .container-fluid
+      %a.brand{ :href => "#" } Project Name
+      .nav-collapse
+        %ul.nav
+          %li
+            %a List 1
+          %li
+            %a List 2
+          %li
+            %a List 3
+          %li= link_to "Sign In with Facebook", "/auth/facebook"
