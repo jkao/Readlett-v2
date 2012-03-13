@@ -12,9 +12,10 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
 
-  %body
+  %body{ :id => "wallpaper-1" }
+    - # TODO: Convert the layout to fixed width - perhaps check the resolution of IPad + Android tablets?
     = render :partial => "layouts/header"
-    .container
+    .container-fluid
       #main
         = yield
       %ul

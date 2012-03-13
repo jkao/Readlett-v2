@@ -10,6 +10,9 @@ Readlett::Application.routes.draw do
   match "/auth/failure" => "sessions#failure"
   match "/logout" => "sessions#destroy"
 
+  # Bookmarks
+  resource :bookmarks
+
   # Default route
   # match '/:controller(/:action(/:id))'
 

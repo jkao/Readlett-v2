@@ -1,7 +1,11 @@
-.navbar.navbar-fixed-top
+#main-nav.navbar.navbar-fixed-top
   .navbar-inner
-    .container-fluid
-      %a.brand{ :href => "#" } Project Name
+    .container
+      %a.btn.btn-navbar{ :"data-toggle" => "collapse", :"data-target" => ".nav-collapse" }
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to "Readlett", root_path, :class => "brand"
       .nav-collapse
         %ul.nav
           %li
