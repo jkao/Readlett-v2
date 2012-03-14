@@ -14,6 +14,14 @@ group :assets do
   gem 'twitter-bootstrap-rails'
 end
 
+group :test do
+  # Mocking Library
+  gem "mocha"
+
+  # Thoughtbot Shoulda
+  gem "shoulda"
+end
+
 # Authentication
 gem "omniauth"
 gem "omniauth-facebook"

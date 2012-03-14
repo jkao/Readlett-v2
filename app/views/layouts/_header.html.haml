@@ -8,10 +8,7 @@
       = link_to "Readlett", root_path, :class => "brand"
       .nav-collapse
         %ul.nav
-          %li
-            %a List 1
-          %li
-            %a List 2
-          %li
-            %a List 3
+          %li= link_to "Explore!", "#"
+          %li= link_to "Categories", "#"
+          %li= link_to "Bookmarklet", "#"
           %li= link_to "Sign In with Facebook", "/auth/facebook"
