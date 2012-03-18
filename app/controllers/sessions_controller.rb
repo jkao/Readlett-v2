@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
 
+  def new
+  end
+
   def create
     auth_hash = env["omniauth.auth"]
     current_user_id = session[:user_id]

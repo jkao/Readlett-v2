@@ -9,8 +9,6 @@
           %h3 Find and Discover new Things that Interest You Online
           %h3 Dramas, Comics, Articles, Anime, and More...
         .span4
-          - # TODO: Render partials here
-          %h3 Register
-          %p Blah Blah Blah
-          %h3 Sign In
-          %p Blah Blah Blah
+          %h3 Register/Sign In
+          %p Sign in or Register with the following Providers:
+          = render :partial => "sessions/providers", :locals => { :title => "Register or Sign In!" }
