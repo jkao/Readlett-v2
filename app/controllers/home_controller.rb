@@ -8,4 +8,7 @@ class HomeController < MainSiteController
   def about
   end
 
+  def legal
+  end
+
 end

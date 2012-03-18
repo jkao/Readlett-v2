@@ -1,3 +1,6 @@
+@import "mixins";
+@import "colors";
+
 body {
   background: #000;
   padding-top: 60px;
@@ -10,7 +13,24 @@ body {
 #main-nav {
   border-bottom: #08C solid 5px;
 }
-#main {
-}
-#layout-banner {
+
+ul#lower-nav {
+  height: 24px;
+  padding: 12px 0px 8px 5px;
+  margin: 0;
+
+  background-color: $trans-black;
+
+  text-align: center;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+
+  z-index: 1000;
+
+  li {
+    display: inline;
+    list-style-type: none;
+    padding: 0 15px;
+  }
 }
