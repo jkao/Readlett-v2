@@ -18,11 +18,11 @@ ul#lower-nav {
   height: 24px;
   padding: 12px 0px 8px 5px;
   margin: 0;
+  position: fixed;
 
   background-color: $trans-black;
 
   text-align: center;
-  position: absolute;
   bottom: 0px;
   right: 0px;
 

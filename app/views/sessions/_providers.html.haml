@@ -1,4 +1,12 @@
 %ul.providers
-  %li= link_to "Facebook", "/auth/facebook", :class => "btn btn-primary"
-  %li= link_to "Facebook", "/auth/facebook", :class => "btn btn-primary"
-  %li= link_to "Facebook", "/auth/facebook", :class => "btn btn-primary"
+  %li
+    %a{ :href => "/auth/facebook", :class => "btn btn-facebook" }
+      %i.icon-facebook-sign.pull-left
+      %span Sign in with Facebook
+  %li
+    %a{ :href => "/auth/twitter", :class => "btn btn-twitter" }
+      %i.icon-twitter-sign.pull-left
+      %span Sign in with Twitter
+  %li
+    %a{ :href => "/auth/google", :class => "btn btn-google" }
+      %span Sign in with Google

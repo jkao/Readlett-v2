@@ -1,0 +1,9 @@
+#sign-in-dialog.modal.fade{ :style => "display: none;" }
+  .modal-header
+    = link_to "x", "#", { :class => "close", :"data-dismiss" => "modal" }
+    %h3 Sign In/Register
+  .modal-body
+    %p One-click and you can start sharing and discovering new content across the web!
+    = render :partial => "sessions/providers"
+  .modal-footer
+    = link_to "Cancel", "#", { :class => "btn", :"data-dismiss" => "modal" }

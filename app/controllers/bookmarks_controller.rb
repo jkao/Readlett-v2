@@ -1,9 +1,11 @@
 class BookmarksController < ApplicationController
 
   def index
+    @bookmarks = Bookmark.page(params[:page]).order("id DESC")
   end
 
   def show
+    @bookmark = Bookmark.find(params[:id])
   end
 
   def create
@@ -16,6 +18,9 @@ class BookmarksController < ApplicationController
   end
 
   def update
+  end
+
+  def filter
   end
 
 end

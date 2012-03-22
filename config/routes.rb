@@ -12,7 +12,7 @@ Readlett::Application.routes.draw do
   match "/logout" => "sessions#destroy"
 
   # Bookmarks
-  resource :bookmarks
+  resources :bookmarks
 
   # Default route
   # match '/:controller(/:action(/:id))'

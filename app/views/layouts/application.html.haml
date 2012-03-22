@@ -14,12 +14,15 @@
 
   %body{ :id => "wallpaper-1" }
     - # TODO: Add flash partial
+    = render :partial => "sessions/sign_in_dialog"
     = render :partial => "layouts/header"
     .container-fluid
       #main
         = yield
-      %ul#lower-nav
-        %li= link_to "Home", index_path
-        %li= link_to "About", about_path
-        %li= link_to "Bookmarklet", "#"
-        %li= link_to "Legal", legal_path
+    .row
+      .span6.offset6
+        %ul#lower-nav
+          %li= link_to "Home", index_path
+          %li= link_to "About", about_path
+          %li= link_to "Bookmarklet", "#"
+          %li= link_to "Legal", legal_path
