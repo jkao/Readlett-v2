@@ -4,5 +4,13 @@
 #main {
   .hero-unit {
     background-color: $trans-white;
+
+    #layout-points {
+      li {
+        font-size: 20px;
+        font-weight: bold;
+        margin: 10px 0;
+      }
+    }
   }
 }
