@@ -6,11 +6,12 @@ class Authorization < ActiveRecord::Base
     auth = find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
 
     if auth.nil?
-      user = User.create :name => auth_hash["user_info"]["name"],
-                         :email => auth_hash["user_info"]["email"]
-      auth = Authorization.create :user => user,
-                                  :provider => auth_hash["provider"],
-                                  :uid => auth_hash["uid"]
+      user = User.create! :name => auth_hash.info.name,
+                         :email => auth_hash.info.email
+
+      auth = Authorization.create! :user => user,
+                                  :provider => auth_hash.provider,
+                                  :uid => auth_hash.uid
     end
 
     auth

@@ -7,14 +7,8 @@ class SessionsController < ApplicationController
     auth_hash = env["omniauth.auth"]
     current_user_id = session[:user_id]
 
-    if current_user_id
-      # User has already signed in - add another provider
-      User.find(current_user_id).add_provider_from_oauth_hash(auth_hash)
-    else
-      # Need to log in/sign up user
-      auth = Authorization.find_or_create_from_oauth_hash(auth_hash)
-      session[:user_id] = auth.user.id
-    end
+    # Create a User or Add a Provider to Existing One
+    session[:user_id] = User.create_or_add_provider(auth_hash, current_user_id)
 
     redirect_to :root, :info => "Successfully logged in!"
   end

@@ -5,11 +5,19 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      = link_to "Readlett", root_path, :class => "brand"
+      = link_to "Mediac", root_path, :class => "brand"
       .nav-collapse
         %ul.nav
           %li= link_to "Explore!", "#"
           %li= link_to "Categories", "#"
-          %li= link_to "Bookmarklet", "#"
         %ul.nav.pull-right
-          %li= link_to "Register/Sign In", "#", { :"data-toggle" => "modal", :"data-target" => "#sign-in-dialog" }
+          %li= link_to "Bookmarklet", "#", { :"data-toggle" => "modal", :"data-target" => "#bookmarklet-code-dialog" }
+          - if signed_in?
+            %li.dropdown
+              %a.dropdown-toggle{ :"data-toggle" => "dropdown", :href => "#" }= current_user.name
+              %ul.dropdown-menu
+                %li= link_to "My Profile", "#"
+                %li.divider
+                %li= link_to "Sign Out", logout_path
+          - else
+            %li= link_to "Register/Sign In", "#", { :"data-toggle" => "modal", :"data-target" => "#sign-in-dialog" }

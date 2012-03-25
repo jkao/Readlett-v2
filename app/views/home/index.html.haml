@@ -1,2 +1,3 @@
-= render :partial => "index_banner"
+- if current_user.nil?
+  = render :partial => "index_banner"
 - # TODO: Render Bookmarks

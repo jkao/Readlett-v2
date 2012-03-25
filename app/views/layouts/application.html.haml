@@ -4,6 +4,7 @@
     %title
       Readlett | #{yield(:title).empty? ? "Bookmarking made Simple" : yield(:title)}
 
+    - # TODO: SEO META TAGS
     /[if lt IE 9]
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
@@ -14,7 +15,9 @@
 
   %body{ :id => "wallpaper-1" }
     - # TODO: Add flash partial
+    - # TODO: Helper that determines wallpaper-id
     = render :partial => "sessions/sign_in_dialog"
+    = render :partial => "bookmarklet/bookmarklet_dialog"
     = render :partial => "layouts/header"
     .container-fluid
       #main
@@ -24,5 +27,5 @@
         %ul#lower-nav
           %li= link_to "Home", index_path
           %li= link_to "About", about_path
-          %li= link_to "Bookmarklet", "#"
+          %li= link_to "Bookmarklet", "#", { :"data-toggle" => "modal", :"data-target" => "#bookmarklet-code-dialog" }
           %li= link_to "Legal", legal_path

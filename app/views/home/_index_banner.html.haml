@@ -7,12 +7,23 @@
           %br
           %ul#layout-points
             %li.icon-bookmark
-              Keep track of things You Watch and Read Online with Our Bookmarklet
+              Keep track of things You Watch and Read Online with Our
+              = link_to "Bookmarklet", "#", { :"data-toggle" => "modal", :"data-target" => "#bookmarklet-code-dialog" }
             %li.icon-user
-              Find and Discover new Things that Interest You Online
+              = link_to "Find and Discover" 
+              new Things that Interest You Online
             %li.icon-book
-              Dramas, Comics, Articles, Anime, and More...
+              = succeed "," do
+                = link_to "Dramas", "#"
+              = succeed "," do
+                = link_to "Comics", "#"
+              = succeed "," do
+                = link_to "Articles", "#"
+              = succeed "," do
+                = link_to "Anime", "#"
+              and
+              = link_to "More! "#"
         .span4
           %h3 Register/Sign In
-          %p Sign in or Register with the following Providers:
+          %p Sign in or Register with the Facebook (don't worry we won't spam your wall!)
           = render :partial => "sessions/providers", :locals => { :title => "Register or Sign In!" }

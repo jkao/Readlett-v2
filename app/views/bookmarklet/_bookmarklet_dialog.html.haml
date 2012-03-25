@@ -1,9 +1,10 @@
 #bookmarklet-code-dialog.modal.fade{ :style => "display: none;" }
   .modal-header
     = link_to "x", "#", { :class => "close", :"data-dismiss" => "modal" }
-    %h3 Sign In/Register
+    %h3 Bookmarklet
   .modal-body
     %p TODO: Put up pictures on how to drag Bookmarklet to URL Bar
-    = render :partial => "sessions/providers"
+    %p Drag the Bookmarklet code to your Bookmark Bar and Start Saving!
+    = render :partial => "bookmarklet/bookmarklet_code"
   .modal-footer
     = link_to "Cancel", "#", { :class => "btn", :"data-dismiss" => "modal" }
