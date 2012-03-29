@@ -10,4 +10,17 @@ class Bookmark < ActiveRecord::Base
   # Pagination
   self.per_page = 15
 
+  def self.get_latest
+  end
+
+  # Order by:
+  # 1. # Users Bookmarking it
+  # 2. # 'Likes'/Comments
+  # 3. # Date Created
+  def self.get_popular
+  end
+
+  def self.get_popular
+  end
+
 end

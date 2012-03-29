@@ -15,12 +15,22 @@ group :assets do
   gem "font-awesome-rails"
 end
 
+group :development, :test do
+  gem "faker"
+end
+
+group :development do
+end
+
 group :test do
   # Mocking Library
   gem "mocha"
 
   # Thoughtbot Shoulda
   gem "shoulda"
+
+  # Factory
+  gem "factory_girl"
 end
 
 # Authentication

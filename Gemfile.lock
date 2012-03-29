@@ -47,6 +47,10 @@ GEM
     erubis (2.7.0)
     execjs (1.3.0)
       multi_json (~> 1.0)
+    factory_girl (3.0.0)
+      activesupport (>= 3.0.0)
+    faker (1.0.1)
+      i18n (~> 0.4)
     faraday (0.7.6)
       addressable (~> 2.2)
       multipart-post (~> 1.1)
@@ -79,7 +83,6 @@ GEM
       metaclass (~> 0.0.1)
     multi_json (1.0.4)
     multipart-post (1.1.5)
-    oauth (0.4.5)
     oauth2 (0.5.2)
       faraday (~> 0.7)
       multi_json (~> 1.0)
@@ -88,19 +91,11 @@ GEM
       rack
     omniauth-facebook (1.2.0)
       omniauth-oauth2 (~> 1.0.0)
-    omniauth-google-oauth2 (0.1.9)
-      omniauth (~> 1.0)
-      omniauth-oauth2
     omniauth-identity (1.0.0)
-      omniauth (~> 1.0)
-    omniauth-oauth (1.0.1)
-      oauth
       omniauth (~> 1.0)
     omniauth-oauth2 (1.0.0)
       oauth2 (~> 0.5.0)
       omniauth (~> 1.0)
-    omniauth-twitter (0.0.8)
-      omniauth-oauth (~> 1.0)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.1)
@@ -165,15 +160,15 @@ PLATFORMS
 DEPENDENCIES
   acts_as_api
   coffee-rails (~> 3.2.1)
+  factory_girl
+  faker
   font-awesome-rails
   haml (~> 3.1.4)
   jquery-rails
   mocha
   omniauth
   omniauth-facebook
-  omniauth-google-oauth2
   omniauth-identity
-  omniauth-twitter
   rails (= 3.2.1)
   sass-rails (~> 3.2.3)
   shoulda

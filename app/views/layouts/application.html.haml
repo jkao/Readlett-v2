@@ -16,7 +16,8 @@
   %body{ :id => "wallpaper-1" }
     - # TODO: Add flash partial
     - # TODO: Helper that determines wallpaper-id
-    = render :partial => "sessions/sign_in_dialog"
+    - if !signed_in?
+      = render :partial => "sessions/sign_in_dialog"
     = render :partial => "bookmarklet/bookmarklet_dialog"
     = render :partial => "layouts/header"
     .container-fluid

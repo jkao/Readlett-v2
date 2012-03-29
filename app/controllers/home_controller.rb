@@ -1,6 +1,6 @@
 class HomeController < MainSiteController
 
-  caches_page :index, :about
+  caches_page :index, :about, :legal
 
   def index
   end
