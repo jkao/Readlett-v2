@@ -1,0 +1,12 @@
+@import "mixins";
+@import "colors";
+
+.bookmark {
+  @include rounded(10px);
+  padding: 8px;
+  background-color: $trans-white;
+  border-bottom: $blue solid 5px;
+  .thumbnail {
+    min-height: 180px;
+  }
+}

@@ -1,3 +1,5 @@
 - if current_user.nil?
   = render :partial => "index_banner"
-- # TODO: Render Bookmarks
+
+%h2 Recent Bookmarks
+= render :partial => "bookmarks/list", :locals => { :bookmarks => @bookmarks }

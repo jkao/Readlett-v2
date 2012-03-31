@@ -1,0 +1,11 @@
+/ TODO: Convert these to Masonry bricks
+%ul.thumbnails
+  - bookmarks.each do |bookmark|
+    %li.span3.bookmark.masonry-brick
+      .thumbnail
+        / %img{ :src => "http://placehold.it/260x180", :alt => "thumb" }
+      .caption
+        %h5= bookmark.title
+        %p= bookmark.description
+        %p
+          = link_to "Click", "#", { :class => "btn primary" }

@@ -2,9 +2,10 @@
 %html
   %head
     %title
-      Readlett | #{yield(:title).empty? ? "Bookmarking made Simple" : yield(:title)}
+      #{yield(:title).empty? ? "Bookmarking made Simple" : yield(:title)} | Mediac
 
-    - # TODO: SEO META TAGS
+    %meta{ :name => "description",
+          :content => "Mediac is a web platform for sharing and keeping track of awesome Internet content! Never lose track of your bookmarks and discover new things to digest." }
     /[if lt IE 9]
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
@@ -13,9 +14,8 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
 
-  %body{ :id => "wallpaper-1" }
+  %body{ :id => wallpaper_id }
     - # TODO: Add flash partial
-    - # TODO: Helper that determines wallpaper-id
     - if !signed_in?
       = render :partial => "sessions/sign_in_dialog"
     = render :partial => "bookmarklet/bookmarklet_dialog"

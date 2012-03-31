@@ -1,2 +1,1 @@
-- @bookmarks.each do |bookmark|
-  .media= bookmark
+= render :partial => "bookmarks/list", :locals => { :bookmarks => @bookmarks }

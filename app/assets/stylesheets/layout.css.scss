@@ -6,11 +6,11 @@ body {
 }
 
 #wallpaper-1 {
-  background: #000 url("/assets/layouts/domo-wallpaper2.jpg") no-repeat top;
+  background: #000 url("/assets/layouts/domo-wallpaper2.jpg") no-repeat center center fixed;
 }
 
 #main-nav {
-  border-bottom: #08C solid 5px;
+  border-bottom: $blue solid 5px;
 }
 
 ul#lower-nav {

@@ -16,7 +16,9 @@ group :assets do
 end
 
 group :development, :test do
+  # Helps populate data
   gem "faker"
+  gem "factory_girl_rails", "~> 2.0"
 end
 
 group :development do
@@ -28,9 +30,6 @@ group :test do
 
   # Thoughtbot Shoulda
   gem "shoulda"
-
-  # Factory
-  gem "factory_girl"
 end
 
 # Authentication
@@ -44,3 +43,9 @@ gem "will_paginate"
 
 # Front-end
 gem "jquery-rails"
+
+# UUID Generation
+gem "uuid", "~> 2.3.5"
+
+# ActiveRecord models can be 'symbolized'
+gem "symbolize", :require => "symbolize/active_record"

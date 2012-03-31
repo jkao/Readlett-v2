@@ -5,3 +5,20 @@
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + round($opac*100) + ")";
   filter: "alpha(opacity=" + round($opac*100) + ")";
 }
+
+@mixin rounded($radius: 10px) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+@mixin rounded-side($side, $radius: 10px) {
+   border-#{$side}-radius: $radius;
+   -moz-border-radius-#{$side}: $radius;
+   -webkit-border-#{$side}-radius: $radius;
+}
+
+@mixin shadow($horizontal-off, $vertical-off, $blur-rad, $spread-rad, $color) {
+   -moz-box-shadow: $horizontal-off $vertical-off $blur-rad $spread-rad $color;
+   -webkit-box-shadow: $horizontal-off $vertical-off $blur-rad $spread-rad $color;
+   box-shadow: $horizontal-off $vertical-off $blur-rad $spread-rad $color;
+}

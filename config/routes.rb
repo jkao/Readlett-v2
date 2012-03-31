@@ -14,6 +14,10 @@ Readlett::Application.routes.draw do
   # Bookmarks
   resources :bookmarks
 
+  # Categories
+  match "/t" => "categories#index", :as => :categories
+  match "/t/q/:query" => "categories#query", :as => :categories_query
+
   # Default route
   # match '/:controller(/:action(/:id))'
 
