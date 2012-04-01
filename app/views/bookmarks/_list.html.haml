@@ -1,11 +1,21 @@
-/ TODO: Convert these to Masonry bricks
-%ul.thumbnails
+- thumbnails_hash = UUID.generate(:compact)
+%div{ :id => thumbnails_hash }
   - bookmarks.each do |bookmark|
-    %li.span3.bookmark.masonry-brick
+    .bookmark.masonry-brick.col1
       .thumbnail
-        / %img{ :src => "http://placehold.it/260x180", :alt => "thumb" }
+        %img{ :src => "http://pagepeeker.com/t/m/wikipedia.org" }
       .caption
         %h5= bookmark.title
-        %p= bookmark.description
+        %p= truncate(bookmark.description, :length => 80)
+        %p= bookmark.user.name
         %p
           = link_to "Click", "#", { :class => "btn primary" }
+
+:javascript
+  $(document).ready(function() {
+    $('##{thumbnails_hash}').masonry({
+      itemSelector: '.bookmark',
+      singleMode: true,
+      isAnimated: true
+    });
+  });

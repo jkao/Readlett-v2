@@ -2,11 +2,13 @@
 @import "colors";
 
 .bookmark {
-  @include rounded(10px);
+  float: left;
+  margin: 20px 10px;
+  width: 200px;
   padding: 8px;
   background-color: $trans-white;
   border-bottom: $blue solid 5px;
   .thumbnail {
-    min-height: 180px;
+    min-height: 150px;
   }
 }

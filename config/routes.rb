@@ -11,12 +11,15 @@ Readlett::Application.routes.draw do
   match "/auth/failure" => "sessions#failure"
   match "/logout" => "sessions#destroy"
 
+  match "/me" => "users#me"
+
   # Bookmarks
+  # TODO: Add resource route for filtering
   resources :bookmarks
 
   # Categories
   match "/t" => "categories#index", :as => :categories
-  match "/t/q/:query" => "categories#query", :as => :categories_query
+  match "/t/:query" => "categories#query", :as => :categories_query
 
   # Default route
   # match '/:controller(/:action(/:id))'

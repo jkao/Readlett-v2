@@ -23,8 +23,8 @@ class Bookmark < ActiveRecord::Base
   end
 
   # Returns Most Recent Bookmarks
-  def self.get_recent(lim = 16)
-    self.public_filter.order("id DESC").limit(lim)
+  def self.get_recent
+    self.public_filter.order("id DESC")
   end
 
 end

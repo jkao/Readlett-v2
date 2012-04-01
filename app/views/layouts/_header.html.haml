@@ -8,8 +8,10 @@
       = link_to "Mediac", root_path, :class => "brand"
       .nav-collapse
         %ul.nav
+          - if signed_in?
+            %li= link_to "My Bookmarks", "#"
           %li= link_to "Explore!", "#"
-          %li= link_to "Categories", categories_path
+          %li= link_to "Tags", categories_path
         %ul.nav.pull-right
           %li= link_to "Bookmarklet", "#", { :"data-toggle" => "modal", :"data-target" => "#bookmarklet-code-dialog" }
           - if signed_in?
