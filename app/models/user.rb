@@ -1,9 +1,13 @@
 class User < ActiveRecord::Base
+
+  # Associations
   has_many :authorizations
   validates :name, :email, :presence => true
 
-  def self.create_or_add_provider(auth_hash, current_user_id = nil)
+  # Filters
+  before_save :set_lowercase!
 
+  def self.create_or_add_provider(auth_hash, current_user_id = nil)
     if current_user_id.nil?
       # Need to create and authenticate user
       auth = Authorization.find_or_create_from_oauth_hash(auth_hash)
@@ -12,7 +16,6 @@ class User < ActiveRecord::Base
       # User has already signed in - add another provider
       User.find(current_user_id).add_provider_from_oauth_hash(auth_hash)
     end
-
     current_user_id
   end
 
@@ -22,5 +25,12 @@ class User < ActiveRecord::Base
     Authorization.create :user => self,
                          :provider => auth_hash["provider"],
                          :uid => auth_hash["uid"] if auth.nil?
+  end
+
+  private
+
+  def set_lowercase!
+    self.email = self.email.downcase unless self.email.nil?
+    self.save!
   end
 end

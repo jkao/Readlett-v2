@@ -6,15 +6,10 @@ class BookmarksController < ApplicationController
 
   def show
     @bookmark = Bookmark.find(params[:id])
+    @bookmark.increment_view! unless @bookmark.nil?
   end
 
   def create
-  end
-
-  def new
-  end
-
-  def edit
   end
 
   def update

@@ -19,6 +19,9 @@ group :development, :test do
   # Helps populate data
   gem "faker"
   gem "factory_girl_rails", "~> 2.0"
+
+  # Make test output nicer
+  gem "turn"
 end
 
 group :development do
@@ -49,3 +52,6 @@ gem "uuid", "~> 2.3.5"
 
 # ActiveRecord models can be 'symbolized'
 gem "symbolize", :require => "symbolize/active_record"
+
+# Web-scraping help
+gem "pismo"

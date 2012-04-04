@@ -8,6 +8,11 @@ class SessionsController < ApplicationController
     current_user_id = session[:user_id]
 
     # Create a User or Add a Provider to Existing One
+    # TODO: create or add seems to violate single-responsibility
+    if signed_in?
+    else
+    end
+
     session[:user_id] = User.create_or_add_provider(auth_hash, current_user_id)
 
     redirect_to :root, :info => "Successfully logged in!"

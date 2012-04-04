@@ -11,4 +11,11 @@
   .thumbnail {
     min-height: 150px;
   }
+  .buttons {
+    text-align: center;
+    .btn {
+      margin: 2px 0;
+      width: 80%;
+    }
+  }
 }

@@ -6,7 +6,6 @@ class CreateInitialSchema < ActiveRecord::Migration
       t.string  :description
       t.string  :link,                    :null => false
       t.integer :user_id,                 :null => false
-      t.integer :category_id,             :null => false
       t.boolean :private,                 :null => false, :default => false
       t.boolean :nsfw,                    :null => false, :default => false
       t.string :disqus_uuid
@@ -32,7 +31,12 @@ class CreateInitialSchema < ActiveRecord::Migration
       t.timestamps
     end
 
-    create_table :categories do |t|
+    create_table :bookmarks_tags do |t|
+      t.integer :bookmark_id,                 :null => false
+      t.integer :tag_id,                      :null => false
+    end
+
+    create_table :tags do |t|
       t.string   :code,                    :null => false
       t.string   :name,                :null => false
     end
@@ -79,7 +83,8 @@ class CreateInitialSchema < ActiveRecord::Migration
     drop_table :bookmarks
     drop_table :users
     drop_table :bookmarks_users
-    drop_table :categories
+    drop_table :bookmarks_tags
+    drop_table :tags
     drop_table :ratings
     drop_table :featured_items
     drop_table :pictures_users
