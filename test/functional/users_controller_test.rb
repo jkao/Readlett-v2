@@ -7,13 +7,11 @@ class UsersControllerTest < ActionController::TestCase
     end
 
     should "show the user" do
-      get :show, :id => @user.id
-      # TODO: Assert sets
+      # TODO
     end
 
     should "show self" do
-      get :me
-      # TODO: Logged in helper
+      # TODO
     end
   end
 end

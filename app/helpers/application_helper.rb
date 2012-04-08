@@ -1,9 +1,9 @@
 module ApplicationHelper
-  READLETT_QUOTE = "Bookmarking made Simple"
+  MEDIAC_QUOTE = "Bookmarking made Simple"
   WALLPAPER_COUNT = 1
 
   # Set title of layout page
-  def title(page_title)
+  def title(page_title = MEDIAC_QUOTE)
     content_for(:title) { page_title }
   end
 

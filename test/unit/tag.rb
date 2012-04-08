@@ -18,12 +18,16 @@ class TagTest < ActiveSupport::TestCase
   context "A tag with multiple bookmarks" do
     setup do
       @tag = FactoryGirl.create(:tag)
+
       3.times do
-        @tag.bookmarks << FactoryGirl.create(:bookmark, :tag => @tag)
+        @tag.bookmarks << FactoryGirl.create(:bookmark)
       end
     end
 
     should "be able to assert associations" do
+      @tag.bookmarks.each do |bookmark|
+        assert bookmark.tags.include?(@tag)
+      end
     end
   end
 end

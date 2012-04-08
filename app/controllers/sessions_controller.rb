@@ -4,18 +4,34 @@ class SessionsController < ApplicationController
   end
 
   def create
-    auth_hash = env["omniauth.auth"]
-    current_user_id = session[:user_id]
+    omniauth = omniauth_environment
+    authorization = Authorization.find_by_provider_and_uid(omniauth[:provider], omniauth[:uid])
 
-    # Create a User or Add a Provider to Existing One
-    # TODO: create or add seems to violate single-responsibility
-    if signed_in?
+    if authorization
+      session[:user_id] = authorization.user.id
+      flash[:notice] = "Signed in Successfully!"
+    elsif signed_in?
+      current_user.authorizations.create({
+        :provider => omniauth[:provider],
+        :uid => omniauth[:uid]
+      })
+      flash[:notice] = "Added Authorization Successfully!"
     else
+      user = User.new({
+        :name => omniauth[:info][:name],
+        :email => omniauth[:info][:email]
+      })
+      user.authorizations.build({
+        :provider => omniauth[:provider],
+        :uid => omniauth[:uid]
+      })
+      user.save!
+
+      session[:user_id] = user.id
+      flash[:notice] = "Welcome to Mediac!"
     end
 
-    session[:user_id] = User.create_or_add_provider(auth_hash, current_user_id)
-
-    redirect_to :root, :info => "Successfully logged in!"
+    redirect_to :root
   end
 
   def failure
@@ -25,6 +41,13 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     redirect_to :root, :info => "Successfully logged out!"
+  end
+
+  private
+
+  # This wraps around the Rack environment and makes it easier to mock
+  def omniauth_environment
+    env["omniauth.auth"]
   end
 
 end

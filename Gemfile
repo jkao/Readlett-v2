@@ -21,7 +21,8 @@ group :development, :test do
   gem "factory_girl_rails", "~> 2.0"
 
   # Make test output nicer
-  gem "turn"
+  gem "redgreen"
+  gem "test-unit", "1.2.3"
 end
 
 group :development do
@@ -38,6 +39,7 @@ end
 # Authentication
 gem "omniauth"
 gem "omniauth-facebook"
+gem "omniauth-google-oauth2"
 gem "omniauth-identity"
 
 # API-Related Gems
