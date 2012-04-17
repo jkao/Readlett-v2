@@ -1,6 +1,4 @@
 class TagsController < ApplicationController
-
-  # TODO: Return the most popular tags
   def index
     @categories = Tag.page(params[:page])
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120306074046) do
+ActiveRecord::Schema.define(:version => 20120415063150) do
 
   create_table "authorizations", :force => true do |t|
     t.string  "provider", :null => false
@@ -19,25 +19,7 @@ ActiveRecord::Schema.define(:version => 20120306074046) do
     t.integer "user_id",  :null => false
   end
 
-  create_table "bookmarks", :force => true do |t|
-    t.string   "title",       :limit => 64,                    :null => false
-    t.string   "description"
-    t.string   "link",                                         :null => false
-    t.integer  "user_id",                                      :null => false
-    t.boolean  "private",                   :default => false, :null => false
-    t.boolean  "nsfw",                      :default => false, :null => false
-    t.string   "disqus_uuid"
-    t.integer  "views"
-    t.datetime "created_at",                                   :null => false
-    t.datetime "updated_at",                                   :null => false
-  end
-
-  create_table "bookmarks_tags", :force => true do |t|
-    t.integer "bookmark_id", :null => false
-    t.integer "tag_id",      :null => false
-  end
-
-  create_table "bookmarks_users", :force => true do |t|
+  create_table "bookmark_user_entries", :force => true do |t|
     t.integer  "bookmark_id",                    :null => false
     t.integer  "user_id",                        :null => false
     t.string   "current_url",                    :null => false
@@ -47,11 +29,37 @@ ActiveRecord::Schema.define(:version => 20120306074046) do
     t.datetime "updated_at",                     :null => false
   end
 
+  create_table "bookmarks", :force => true do |t|
+    t.string   "title",       :limit => 64,                     :null => false
+    t.text     "description", :limit => 255
+    t.string   "url",                                           :null => false
+    t.integer  "user_id"
+    t.boolean  "private",                    :default => false, :null => false
+    t.boolean  "nsfw",                       :default => false, :null => false
+    t.string   "disqus_uuid"
+    t.integer  "views"
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
+    t.integer  "likes_count",                :default => 0
+  end
+
+  create_table "bookmarks_tags", :force => true do |t|
+    t.integer "bookmark_id", :null => false
+    t.integer "tag_id",      :null => false
+  end
+
   create_table "featured_items", :force => true do |t|
     t.integer  "bookmark_id", :null => false
     t.integer  "user_id",     :null => false
     t.datetime "start",       :null => false
     t.datetime "end",         :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "likes", :force => true do |t|
+    t.integer  "bookmark_id", :null => false
+    t.integer  "user_id",     :null => false
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -65,19 +73,11 @@ ActiveRecord::Schema.define(:version => 20120306074046) do
     t.datetime "updated_at",                    :null => false
   end
 
-  create_table "ratings", :force => true do |t|
-    t.integer  "bookmark_id", :null => false
-    t.integer  "user_id",     :null => false
-    t.integer  "rating",      :null => false
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
   create_table "reports", :force => true do |t|
     t.integer "complaint_bookmark_id"
     t.integer "complaint_user_id"
     t.integer "complainer_user_id"
-    t.string  "reason"
+    t.text    "reason",                :limit => 255
   end
 
   create_table "tags", :force => true do |t|
@@ -86,13 +86,14 @@ ActiveRecord::Schema.define(:version => 20120306074046) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",       :limit => 64, :null => false
+    t.string   "email",       :limit => 64,                     :null => false
     t.string   "name"
     t.string   "url"
-    t.string   "description"
+    t.text     "description", :limit => 255
     t.string   "disqus_uuid"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
+    t.boolean  "nsfw",                       :default => false
   end
 
 end

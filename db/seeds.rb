@@ -6,12 +6,7 @@ puts "Creating Users..."
   users << FactoryGirl.create(:user)
 end
 
-puts "Creating Categories..."
-25.times do
-  categories << FactoryGirl.create(:category)
-end
-
 puts "Creating Bookmarks..."
 50.times do
-  FactoryGirl.create(:bookmark, :user => users.sample, :category => categories.sample)
+  FactoryGirl.create(:bookmark, :user => users.sample)
 end

@@ -10,19 +10,33 @@ Readlett::Application.routes.draw do
   # Authentication
   match "/auth/:provider/callback" => "sessions#create"
   match "/auth/failure" => "sessions#failure"
+  match "/login" => "sessions#new", :as => :login
   match "/logout" => "sessions#destroy"
 
   # Users
-  match "/me" => "users#me"
+  match "/me" => "users#me", :as => :me
 
   # Bookmarks
-  resources :bookmarks
+  resources :bookmarks do
+    member do
+      post :like
+      post :unlike
+      post :follow
+      post :unfollow
+      post :update_position
+      get :redirect
+    end
 
-  # Categories
-  match "/tags" => "categories#index", :as => :categories
-  match "/tags/:query" => "categories#query", :as => :categories_query
+    collection do
+      get :search
+      get :popular
+    end
+  end
 
-  # Bookmarklet Subdomain
+  # Tags
+  resources :tags
+
+  # Bookmarklet
 
   # Default route
   # match '/:controller(/:action(/:id))'

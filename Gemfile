@@ -13,6 +13,7 @@ group :assets do
   gem "uglifier", ">= 1.0.3"
   gem "twitter-bootstrap-rails"
   gem "font-awesome-rails"
+  gem "ruby-haml-js"
 end
 
 group :development, :test do
@@ -48,6 +49,7 @@ gem "will_paginate"
 
 # Front-end
 gem "jquery-rails"
+gem "rails-backbone"
 
 # UUID Generation
 gem "uuid", "~> 2.3.5"
@@ -57,3 +59,4 @@ gem "symbolize", :require => "symbolize/active_record"
 
 # Web-scraping help
 gem "pismo"
+gem "vidibus-words"

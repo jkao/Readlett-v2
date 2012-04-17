@@ -5,7 +5,7 @@ class CreateInitialSchema < ActiveRecord::Migration
       t.string  :title,                   :null => false, :limit => 64
       t.string  :description
       t.string  :link,                    :null => false
-      t.integer :user_id,                 :null => false
+      t.integer :user_id
       t.boolean :private,                 :null => false, :default => false
       t.boolean :nsfw,                    :null => false, :default => false
       t.string :disqus_uuid
@@ -22,7 +22,7 @@ class CreateInitialSchema < ActiveRecord::Migration
       t.timestamps
     end
 
-    create_table :bookmarks_users do |t|
+    create_table :bookmark_user_entries do |t|
       t.integer :bookmark_id,                 :null => false
       t.integer  :user_id,                    :null => false
       t.string  :current_url,                 :null => false
@@ -82,7 +82,7 @@ class CreateInitialSchema < ActiveRecord::Migration
   def down
     drop_table :bookmarks
     drop_table :users
-    drop_table :bookmarks_users
+    drop_table :bookmark_user_entries
     drop_table :bookmarks_tags
     drop_table :tags
     drop_table :ratings
