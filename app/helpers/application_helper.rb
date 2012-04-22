@@ -3,8 +3,12 @@ module ApplicationHelper
   WALLPAPER_COUNT = 1
 
   # Set title of layout page
-  def title(page_title = MEDIAC_QUOTE)
+  def title(page_title)
     content_for(:title) { page_title }
+  end
+
+  def default_title
+    MEDIAC_QUOTE
   end
 
   def wallpaper_id

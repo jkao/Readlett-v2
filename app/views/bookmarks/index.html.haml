@@ -1,1 +1,1 @@
-= render :partial => "bookmarks/list", :locals => { :bookmarks => @bookmarks }
+#bookmarks-index{:"data-bookmarks" => "#{Serialize::BookmarksSerializer.as_json(@bookmarks)}"}

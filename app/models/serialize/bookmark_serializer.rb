@@ -1,4 +1,4 @@
-class BookmarkSerializer
+class Serialize::BookmarkSerializer
   def self.as_json(bookmark)
     if bookmark.errors.present?
       { :errors => bookmark.errors.full_messages }
