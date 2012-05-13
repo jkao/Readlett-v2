@@ -25,13 +25,15 @@
     = csrf_meta_tags
 
   %body{ :id => wallpaper_id }
-    - # TODO: Add flash partial
     - if !signed_in?
       = render :partial => "sessions/sign_in_dialog"
     = render :partial => "bookmarklet/bookmarklet_dialog"
     = render :partial => "layouts/header"
     .container-fluid
       #main
+        %noscript
+          %h3.red-strip{ :style => "margin: 0 0 10px 0;" } Whoops! Looks like you have JavaScript turned off. Mediac needs JavaScript to let you Save, Share, and Explore bookmarks.
+        = render :partial => "layouts/notifications", :locals => { :flash => flash }
         = yield
     .row
       .span6.offset6

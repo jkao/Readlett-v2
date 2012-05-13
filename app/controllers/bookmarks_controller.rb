@@ -1,4 +1,5 @@
 class BookmarksController < ApplicationController
+  include ApiResponseLibrary
 
   BOOKMARK_PRIVACY_CHECK_MEMBERS = [:index, :search, :create, :popular]
 
@@ -8,61 +9,57 @@ class BookmarksController < ApplicationController
 
   def index
     @bookmarks = Bookmark.safe_query.get_recent.page(params[:page])
-
-    respond_to do |format|
-      format.html
-      format.json { render :json => Serialize::BookmarksSerializer.as_json(@bookmarks) }
-    end
+    render_collection_json Serialize::BookmarksSerializer.as_json(@bookmarks)
   end
 
   def search
     @bookmarks = Bookmark.search(params[:query]).page(params[:page])
-    render :json => Serialize::BookmarksSerializer.as_json(@bookmarks)
+    render_collection_json Serialize::BookmarksSerializer.as_json(@bookmarks)
   end
 
   def popular
     @bookmarks = Bookmark.get_popular.page(params[:page])
-    render :json => Serialize::BookmarksSerializer.as_json(@bookmarks)
+    render_collection_json Serialize::BookmarksSerializer.as_json(@bookmarks)
   end
 
   def show
-    render :json => Serialize::BookmarkSerializer.as_json(@bookmark)
+    render_json Serialize::BookmarkSerializer.as_json(@bookmark)
   end
 
   def create
     @bookmark = Bookmark.new(params[:bookmark])
     @bookmark.follow!(current_user) if @bookmark.save
-    render :json => Serialize::BookmarkSerializer.as_json(@bookmark)
+    render_json Serialize::BookmarkSerializer.as_json(@bookmark)
   end
 
   def update
     @bookmark.update_attributes(bookmark_params)
-    render :json => Serialize::BookmarkSerializer.as_json(@bookmark)
+    render_json Serialize::BookmarkSerializer.as_json(@bookmark)
   end
 
   def destroy
     @bookmark.safe_delete(current_user)
-    render :json => Serialize::BookmarkSerializer.as_json(@bookmark)
+    render_json Serialize::BookmarkSerializer.as_json(@bookmark)
   end
 
   def like
     @bookmark.like!(current_user)
-    render :json => Serialize::BookmarkSerializer.as_json(@bookmark)
+    render_json Serialize::BookmarkSerializer.as_json(@bookmark)
   end
 
   def unlike
     @bookmark.unlike!(current_user)
-    render :json => Serialize::BookmarkSerializer.as_json(@bookmark)
+    render_json Serialize::BookmarkSerializer.as_json(@bookmark)
   end
 
   def follow
     @bookmark.follow!(current_user)
-    render :json => Serialize::BookmarkSerializer.as_json(@bookmark)
+    render_json Serialize::BookmarkSerializer.as_json(@bookmark)
   end
 
   def unfollow
     @bookmark.unfollow!(current_user)
-    render :json => Serialize::BookmarkSerializer.as_json(@bookmark)
+    render_json Serialize::BookmarkSerializer.as_json(@bookmark)
   end
 
   def redirect

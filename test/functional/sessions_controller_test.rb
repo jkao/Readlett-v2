@@ -87,7 +87,7 @@ class SessionsControllerTest < ActionController::TestCase
       should "add a provider" do
         get :create
         assert_redirected_to root_path
-        assert_match "Added Authorization", flash[:notice]
+        assert_match "Added Authorization", flash[:success]
       end
     end
   end

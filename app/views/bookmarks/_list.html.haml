@@ -1,28 +1,7 @@
--#- thumbnails_hash = UUID.generate(:compact)
--#- # TODO: Set up a URL to fetch images from
--#%div{ :id => thumbnails_hash, :'data-get' => "" }
-  -#- bookmarks.each do |bookmark|
-    -#.bookmark.masonry-brick.col1
-      -#%a{:href => bookmark_path(bookmark)}
-        -#.thumbnail
-          -#%img{ :src => "http://pagepeeker.com/t/m/wikipedia.org" }
-      -#.caption
-        -#%h5= link_to bookmark.title, bookmark_path(bookmark)
-        -#%p= truncate(bookmark.description, :length => 200)
-        -#.buttons
-          -#- if signed_in?
-            -#= link_to "Go", nil, {:class => "btn btn-success"}
-            -#= link_to "Bookmark", nil, {:class => "btn btn-primary"}
-          -#- else
-            -#= link_to "Go", nil, {:class => "btn btn-success", :"data-toggle" => "modal", :"data-target" => "#sign-in-dialog"}
-            -#= link_to "Bookmark", nil, {:class => "btn btn-primary", :"data-toggle" => "modal", :"data-target" => "#sign-in-dialog"}
-          -#= link_to "More Info", bookmark_path(bookmark), {:class => "btn"}
+#bookmarks{ :"data-bookmarks" => Serialize::BookmarksSerializer.as_json(@bookmarks).to_json }
 
--#:javascript
-  -#$(function() {
-    -#$('##{thumbnails_hash}').masonry({
-      -#itemSelector: '.bookmark',
-      -#singleMode: true,
-      -#isAnimated: true
-    -#});
-  -#});
+:javascript
+  $(function() {
+    var bookmarks = $('#bookmarks').data('bookmarks');
+    console.log(bookmarks);
+  });

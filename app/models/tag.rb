@@ -9,6 +9,10 @@ class Tag < ActiveRecord::Base
 
   before_validation :set_lower_case
 
+  def self.get_popular
+    self.order("id DESC")
+  end
+
   def latest_bookmarks
     self.bookmarks.order("id DESC")
   end

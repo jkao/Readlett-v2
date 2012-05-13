@@ -9,13 +9,13 @@ class SessionsController < ApplicationController
 
     if authorization
       session[:user_id] = authorization.user.id
-      flash[:notice] = "Signed in Successfully!"
+      flash[:success] = "Signed in Successfully!"
     elsif signed_in?
       current_user.authorizations.create({
         :provider => omniauth[:provider],
         :uid => omniauth[:uid]
       })
-      flash[:notice] = "Added Authorization Successfully!"
+      flash[:success] = "Added Authorization Successfully!"
     else
       user = User.new({
         :name => omniauth[:info][:name],
@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
       user.save!
 
       session[:user_id] = user.id
-      flash[:notice] = "Welcome to Mediac!"
+      flash[:success] = "Welcome to Mediac!"
     end
 
     redirect_to :root

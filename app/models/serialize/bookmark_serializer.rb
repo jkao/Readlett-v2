@@ -1,7 +1,9 @@
 class Serialize::BookmarkSerializer
   def self.as_json(bookmark)
+    return {} if bookmark.nil?
+
     if bookmark.errors.present?
-      { :errors => bookmark.errors.full_messages }
+      { :errors => bookmark.errors.full_messages }.as_json
     else
       {
         :id => bookmark.id,
@@ -16,7 +18,7 @@ class Serialize::BookmarkSerializer
         :created_at => bookmark.created_at,
         :updated_at => bookmark.updated_at,
         :user_id => bookmark.user_id # TODO: This should be a serialized User Object
-      }
+      }.as_json
     end
   end
 

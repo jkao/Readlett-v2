@@ -8,13 +8,18 @@ class HomeControllerTest < ActionController::TestCase
       assert :success
     end
 
+    should "GET explore" do
+      get :explore
+      assert :success
+    end
+
     should "GET about" do
       get :about
       assert :success
     end
 
-    should "GET legal" do
-      get :legal
+    should "GET faq" do
+      get :faq
       assert :success
     end
 

@@ -1,0 +1,6 @@
+- flash.each do |type, value|
+  .alert.alert-block.fade.in{ :class => "alert-#{type}" }
+    %a.close{ :"data-dismiss" => "alert", :href => "#" }
+      x
+    %p= value
+
