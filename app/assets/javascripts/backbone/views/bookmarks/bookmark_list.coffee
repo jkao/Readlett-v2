@@ -3,9 +3,18 @@ class window.BookmarkListView extends Backbone.View
   events: {} # TODO
 
   initialize: (options) ->
-    # TODO
+    @render()
 
   render: ->
-    # TODO
+    for bookmark in @collection.models
+      bookmarkDiv = $("<div>").attr("id", "bookmark-#{bookmark.attributes.id}")
+      @$el.append(bookmarkDiv)
 
-  viewData: {} # TODO
+      new BookmarkListItemView(
+        el: bookmarkDiv
+        model: bookmark
+      )
+    @
+
+  viewData: ->
+    bookmarks: @collection.models

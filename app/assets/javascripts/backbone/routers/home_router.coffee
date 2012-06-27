@@ -6,7 +6,8 @@ class window.HomeRouter extends Backbone.Router
     alert("bookmark #{id}")
 
   initializeRecentBookmarksFeed: ->
-    initialBookmarks = new Bookmarks($('#recent-bookmarks').data('bookmarks'))
-    console.log(initialBookmarks)
+    @bookmarkList = new BookmarkListView({
+      el: '#recent-bookmarks' # TODO: Test without jQuery selector
+      collection: new Bookmarks($('#recent-bookmarks').data('bookmarks'))
+    })
     @
-

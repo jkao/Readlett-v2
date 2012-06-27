@@ -1,0 +1,12 @@
+export PATH ; PATH="/Users/jeffkao/.rvm/gems/ruby-1.9.2-p290/bin:/Users/jeffkao/.rvm/gems/ruby-1.9.2-p290@global/bin:/Users/jeffkao/.rvm/rubies/ruby-1.9.2-p290/bin:/Users/jeffkao/.rvm/bin:$PATH"
+export rvm_env_string ; rvm_env_string='ruby-1.9.2-p290'
+export rvm_path ; rvm_path='/Users/jeffkao/.rvm'
+export rvm_ruby_string ; rvm_ruby_string='ruby-1.9.2-p290'
+unset rvm_gemset_name
+export RUBY_VERSION ; RUBY_VERSION='ruby-1.9.2-p290'
+export GEM_HOME ; GEM_HOME='/Users/jeffkao/.rvm/gems/ruby-1.9.2-p290'
+export GEM_PATH ; GEM_PATH='/Users/jeffkao/.rvm/gems/ruby-1.9.2-p290:/Users/jeffkao/.rvm/gems/ruby-1.9.2-p290@global'
+export MY_RUBY_HOME ; MY_RUBY_HOME='/Users/jeffkao/.rvm/rubies/ruby-1.9.2-p290'
+export IRBRC ; IRBRC='/Users/jeffkao/.rvm/rubies/ruby-1.9.2-p290/.irbrc'
+unset MAGLEV_HOME
+unset RBXOPT

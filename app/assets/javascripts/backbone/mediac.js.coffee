@@ -10,6 +10,8 @@ window.Mediac =
   Routers: {}
   Views: {}
 
+window.TEMPLATES = "backbone/templates"
+
 # Initialize the Application
 $(->
 
