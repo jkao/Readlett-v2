@@ -8,8 +8,6 @@ class window.BookmarkListItemView extends Backbone.View
     @render()
 
   render: ->
-    console.log("rendering Bookmark Item View")
-    console.log(JST["#{TEMPLATES}/#{BOOKMARK_LIST_ITEM}"])
     @$el.html(JST["#{TEMPLATES}/#{BOOKMARK_LIST_ITEM}"](@viewData()))
     @
 

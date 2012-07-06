@@ -18,8 +18,8 @@ class Bookmark < ActiveRecord::Base
   end
 
   def self.get_popular(age = 1.month)
-    self.safe_query
-        .where("bookmarks.created_at > ?", (Time.now.utc - age))
+    self.safe_query \
+        #.where("bookmarks.created_at > ?", (Time.now.utc - age))
         .order("bookmarks.views ASC, bookmarks.likes_count ASC, bookmarks.id DESC")
   end
 

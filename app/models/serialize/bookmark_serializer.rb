@@ -15,6 +15,7 @@ class Serialize::BookmarkSerializer
         :disqus_uuid => bookmark.disqus_uuid,
         :views => bookmark.views,
         :likes_count => bookmark.likes_count,
+        :tags => bookmark.tags,
         :created_at => bookmark.created_at,
         :updated_at => bookmark.updated_at,
         :user_id => bookmark.user_id # TODO: This should be a serialized User Object

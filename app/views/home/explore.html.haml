@@ -1,2 +1,6 @@
 %h2.strip Explore Bookmarks
 #explore-bookmarks
+  #tags.span2{ :"data-tags" => Serialize::TagsSerializer.as_json(@tags).to_json }
+    tags
+  #bookmarks.span12{ :"data-bookmarks" => Serialize::BookmarksSerializer.as_json(@bookmarks).to_json}
+    bookmarks

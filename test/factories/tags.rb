@@ -4,7 +4,7 @@ FactoryGirl.define do
     code { Faker::Internet.user_name }
   end
 
-  factory :tag_with_many_bookmarks do
+  factory :tag_with_many_bookmarks, :parent => :tag do
     after_build do |c|
       c.bookmarks << FactoryGirl.build(:bookmark)
     end

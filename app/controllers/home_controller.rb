@@ -7,7 +7,8 @@ class HomeController < MainSiteController
   end
 
   def explore
-    @tags = Tag.get_popular.page(params[:page])
+    @tags = Tag.get_popular
+    @bookmarks = Bookmark.get_popular.page(params[:page])
   end
 
   def about

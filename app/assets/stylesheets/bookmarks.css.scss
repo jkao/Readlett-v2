@@ -4,7 +4,7 @@
 .bookmark {
   float: left;
   margin: 20px 10px;
-  width: 200px;
+  width: 210px;
   padding: 8px;
   background-color: $trans-white;
   border-bottom: $blue solid 5px;
@@ -16,6 +16,15 @@
     .btn {
       margin: 2px 0;
       width: 80%;
+      i {
+        margin: 3px 0;
+      }
+      i.left {
+        float: left;
+      }
+      i.right {
+        float: right;
+      }
     }
   }
 }

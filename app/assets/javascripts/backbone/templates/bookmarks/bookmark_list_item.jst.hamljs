@@ -1,1 +1,12 @@
-THIS IS A BLOCK
+.bookmark
+  %strong= bookmark.attributes.title
+  .description
+    %img.thumbnail{ src: "http://placehold.it/200x150" }
+    = bookmark.attributes.description
+  .buttons
+    %a.btn.btn-primary{ href: "#{bookmark.attributes.url}" }
+      Start Reading!
+      %i.icon-play.right
+  .tags
+    :each tag in bookmark.attributes.tags
+      %a{ href: tag.url }= "#" + tag.name

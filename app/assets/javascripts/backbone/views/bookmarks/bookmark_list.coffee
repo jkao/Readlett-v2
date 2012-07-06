@@ -4,10 +4,17 @@ class window.BookmarkListView extends Backbone.View
 
   initialize: (options) ->
     @render()
+    @initializeMasonry()
+
+  initializeMasonry: ->
+    @$el.masonry(
+      itemSelector: ".bookmark-box"
+    )
 
   render: ->
     for bookmark in @collection.models
-      bookmarkDiv = $("<div>").attr("id", "bookmark-#{bookmark.attributes.id}")
+      bookmarkDiv = $("<span>").attr("id", "bookmark-#{bookmark.attributes.id}")
+                               .addClass("bookmark-box")
       @$el.append(bookmarkDiv)
 
       new BookmarkListItemView(
