@@ -1,6 +1,9 @@
 - if current_user.nil?
   = render :partial => "index_banner"
 
-%h2.strip Recent Bookmarks
-#recent-bookmarks{ :"data-bookmarks" => Serialize::BookmarksSerializer.as_json(@bookmarks).to_json}
-  - # Backbone View Populates this
+.row.strip
+  .span12
+    %h2 Recent Bookmarks
+.row
+  #recent-bookmarks.span12{ :"data-bookmarks" => Serialize::BookmarksSerializer.as_json(@bookmarks).to_json}
+    - # Backbone View Populates this

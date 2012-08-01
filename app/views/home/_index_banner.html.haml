@@ -1,29 +1,34 @@
-.row-fluid
+.row
   .span12
     #layout-banner.hero-unit
       .row-fluid
-        .span8
-          %h1 Explore and Share Content Across the Web
-          %br
-          %ul#layout-points
-            %li.icon-bookmark
-              Keep track of things You Watch and Read Online with Our
-              = link_to "Bookmarklet", "#", { :"data-toggle" => "modal", :"data-target" => "#bookmarklet-code-dialog" }
-            %li.icon-user
-              = link_to "Find and Discover" 
-              new Things that Interest You Online
-            %li.icon-book
-              = succeed "," do
-                = link_to "Dramas", "#"
-              = succeed "," do
-                = link_to "Comics", "#"
-              = succeed "," do
-                = link_to "Articles", "#"
-              = succeed "," do
-                = link_to "Anime", "#"
-              and
-              = link_to "More! "#"
-        .span4
-          %h3 Register/Sign In
-          %p Sign in or Register with the Facebook (don't worry we won't spam your wall!)
+        .span12
+          %h1.header-text.center Save Your Online Content Tracks
+          .row
+            .span11.offset1
+              %ul.bullet-points.icons
+                %li
+                  %i.icon-ok-sign
+                  Save
+                  %strong Dynamic Content
+                  with a 
+                  %strong simple Bookmarklet
+                %li
+                  %i.icon-film
+                  %strong Blogs, Article Series, Video Series, Comics, Manga, and More!
+                %li
+                  %i.icon-remove-sign
+                  Say
+                  %strong GOODBYE
+                  to Bookmarks for things that 
+                  %strong Bookmarks weren't made for!
+
           = render :partial => "sessions/providers", :locals => { :title => "Register or Sign In!" }
+          %p.center
+            %strong Sign in
+            or
+            %strong Register
+            with
+            %strong Facebook
+            or 
+            %strong Google :)

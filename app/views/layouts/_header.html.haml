@@ -7,8 +7,6 @@
         %span.icon-bar
       = link_to "Mediac", root_path, :class => "brand"
       .nav-collapse
-        %ul.nav
-          %li= link_to "Explore!", explore_path
         %ul.nav.pull-right
           %li= link_to "Bookmarklet", "#", { :"data-toggle" => "modal", :"data-target" => "#bookmarklet-code-dialog" }
           - if signed_in?

@@ -11,7 +11,6 @@
     %meta{ :property => "og:type", :content => "website"}
     - #TODO
     %meta{ :property => "og:image", :content => ""}
-    - #TODO
     %meta{ :property => "og:url", :content => "http://mediac.co"}
     %meta{ :property => "og:title", :content => "Mediac"}
     %meta{ :property => "og:description", :content => "Mediac is a web platform for sharing and keeping track of awesome Internet content! Never lose track of your bookmarks and discover new things to digest."}
@@ -29,7 +28,7 @@
       = render :partial => "sessions/sign_in_dialog"
     = render :partial => "bookmarklet/bookmarklet_dialog"
     = render :partial => "layouts/header"
-    .container-fluid
+    .container
       #main
         %noscript
           %h3.red-strip{ :style => "margin: 0 0 10px 0;" } Whoops! Looks like you have JavaScript turned off. Mediac needs JavaScript to let you Save, Share, and Explore bookmarks.
@@ -38,7 +37,6 @@
     .row
       .span6.offset6
         %ul#lower-nav
-          %li= link_to "Home", index_path
-          %li= link_to "About", about_path
+          %li= link_to "Feedback!", "#"
           %li= link_to "Bookmarklet", "#", { :"data-toggle" => "modal", :"data-target" => "#bookmarklet-code-dialog" }
           %li= link_to "FAQ", faq_path

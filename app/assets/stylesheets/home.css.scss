@@ -6,12 +6,17 @@
 
   .hero-unit {
     background-color: $trans-white;
-
-    #layout-points {
+    .header-text {
+      font-size: 52px;
+    }
+    .bullet-points {
+      font-size: 18px;
+      list-style: none;
       li {
-        font-size: 19px;
-        font-weight: bold;
-        margin: 10px 0;
+        margin: 15px 0;
+        i {
+          vertical-align: baseline;
+        }
       }
     }
   }

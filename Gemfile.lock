@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/jkao/font-awesome-rails.git
+  revision: 55b88a90366c42f302b454fac4330f0fc9fe4b7b
+  specs:
+    font-awesome-rails (0.2.1)
+      railties (~> 3.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -62,8 +69,6 @@ GEM
       multipart-post (~> 1.1)
       rack (~> 1.1)
     fast-stemmer (1.0.0)
-    font-awesome-rails (0.2.1)
-      railties (~> 3.1)
     haml (3.1.4)
     hashie (1.2.0)
     hike (1.2.1)
@@ -204,7 +209,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   factory_girl_rails (~> 2.0)
   faker
-  font-awesome-rails
+  font-awesome-rails!
   haml (~> 3.1.4)
   jquery-rails
   mocha

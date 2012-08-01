@@ -1,7 +1,1 @@
 #bookmarks{ :"data-bookmarks" => Serialize::BookmarksSerializer.as_json(@bookmarks).to_json }
-
-:javascript
-  $(function() {
-    var bookmarks = $('#bookmarks').data('bookmarks');
-    console.log(bookmarks);
-  });

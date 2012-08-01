@@ -1,12 +1,37 @@
 .bookmark
-  %strong= bookmark.attributes.title
-  .description
-    %img.thumbnail{ src: "http://placehold.it/200x150" }
-    = bookmark.attributes.description
-  .buttons
-    %a.btn.btn-primary{ href: "#{bookmark.attributes.url}" }
-      Start Reading!
-      %i.icon-play.right
-  .tags
-    :each tag in bookmark.attributes.tags
-      %a{ href: tag.url }= "#" + tag.name
+  .row
+    .span10
+      %span.title-span
+        %a.title{ href: "#{bookmark.attributes.url}" }= bookmark.attributes.title
+    .span2
+      %ul.buttons
+        %li
+          %a{ href: "#", rel: "tooltip", title: "Save!" }
+            %i.icon-save
+        %li
+          %a{ href: "#", rel: "tooltip", title: "Share!" }
+            %i.icon-share
+    %hr
+  .row.bottom
+    .span8
+      .tags
+        &nbsp;
+        :each tag in bookmark.attributes.tags
+          %span.label.label-info= "#" + tag.name
+    .span4
+      %em.meta Read by #{bookmark.attributes.user.name} (#{bookmark.attributes.created_at})
+
+  -#
+    .description
+      %a{ href: "#" }
+        .box.caption= bookmark.attributes.description
+      %a{ href: "#" }
+        .box
+          %img{ src: "http://placehold.it/200x150" }
+    .buttons
+      %a.btn.btn-primary{ href: "#{bookmark.attributes.url}", target: "_new" }
+        Start Reading!
+        %i.icon-play.right
+    .tags
+      :each tag in bookmark.attributes.tags
+        %a{ href: tag.url }= "#" + tag.name

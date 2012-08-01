@@ -2,29 +2,45 @@
 @import "colors";
 
 .bookmark {
-  float: left;
-  margin: 20px 10px;
-  width: 210px;
-  padding: 8px;
   background-color: $trans-white;
   border-bottom: $blue solid 5px;
-  .thumbnail {
-    min-height: 150px;
+  margin: 5px 0;
+  padding: 5px 0 0 0;
+  float: left;
+
+  h4 {
+    a { color: #000; }
   }
-  .buttons {
-    text-align: center;
-    .btn {
-      margin: 2px 0;
-      width: 80%;
-      i {
-        margin: 3px 0;
-      }
-      i.left {
-        float: left;
-      }
-      i.right {
-        float: right;
-      }
+  .meta {
+    color: $grey;
+    font-size: 11px;
+    margin-right: 15px;
+    float: right;
+  }
+  .tags {
+    margin-left: 15px;
+  }
+  .title-span {
+    .title {
+      color: $dark-grey;
+      font-size: 16px;
     }
   }
+  .row.bottom {
+    padding: 0 0 5px 0;
+  }
+  .link {
+    margin-left: 15px;
+  }
+  .buttons {
+    font-size: 24px;
+    list-style-type: none;
+
+    a { text-decoration: none; }
+    li { display: inline; }
+  }
+}
+
+.bookmark-box {
+  margin: 10px 0;
 }

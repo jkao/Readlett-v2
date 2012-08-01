@@ -12,7 +12,7 @@ group :assets do
   gem "haml", "~> 3.1.4"
   gem "uglifier", ">= 1.0.3"
   gem "twitter-bootstrap-rails"
-  gem "font-awesome-rails"
+  gem "font-awesome-rails", :git => "git://github.com/jkao/font-awesome-rails.git"
   gem "ruby-haml-js"
 end
 
