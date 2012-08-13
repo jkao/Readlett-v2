@@ -35,10 +35,6 @@ GEM
     activesupport (3.2.1)
       i18n (~> 0.6)
       multi_json (~> 1.0)
-    acts_as_api (0.3.11)
-      activemodel (>= 3.0.0)
-      activesupport (>= 3.0.0)
-      rack (>= 1.1.0)
     addressable (2.2.7)
     arel (3.0.0)
     awesome_print (1.0.2)
@@ -111,8 +107,6 @@ GEM
     omniauth-google-oauth2 (0.1.9)
       omniauth (~> 1.0)
       omniauth-oauth2
-    omniauth-identity (1.0.0)
-      omniauth (~> 1.0)
     omniauth-oauth2 (1.0.0)
       oauth2 (~> 0.5.0)
       omniauth (~> 1.0)
@@ -205,7 +199,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts_as_api
   coffee-rails (~> 3.2.1)
   factory_girl_rails (~> 2.0)
   faker
@@ -216,7 +209,6 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   omniauth-google-oauth2
-  omniauth-identity
   pismo
   rails (= 3.2.1)
   rails-backbone

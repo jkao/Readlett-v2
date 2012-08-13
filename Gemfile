@@ -41,10 +41,8 @@ end
 gem "omniauth"
 gem "omniauth-facebook"
 gem "omniauth-google-oauth2"
-gem "omniauth-identity"
 
 # API-Related Gems
-gem "acts_as_api"
 gem "will_paginate"
 
 # Front-end

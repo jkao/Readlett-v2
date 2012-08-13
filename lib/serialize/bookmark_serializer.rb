@@ -19,7 +19,7 @@ class Serialize::BookmarkSerializer
         :created_at => bookmark.created_at.to_date,
         :updated_at => bookmark.updated_at.to_date,
         :user => {
-          :name => bookmark.user.name
+          :name => bookmark.user.nil? ? "" : bookmark.user.name
         }
       }.as_json
     end

@@ -2,8 +2,9 @@
   .modal-header
     = link_to "x", "#", { :class => "close", :"data-dismiss" => "modal" }
     %h3 Bookmarklet
-  .modal-body
-    %p TODO: Put up pictures on how to drag Bookmarklet to URL Bar
+  .modal-body.center
+    %a.btn.bookmarklet{ href: "javascript:alert('hello');" } Save on Mediac!
+    %hr
     %p Drag the Bookmarklet code to your Bookmark Bar and Start Saving!
     = render :partial => "bookmarklet/bookmarklet_code"
   .modal-footer

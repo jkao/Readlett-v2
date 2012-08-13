@@ -7,10 +7,10 @@ class window.BookmarkListView extends Backbone.View
 
   render: ->
     for bookmark in @collection.models
-      new BookmarkListItemView(
-        el: @$el
+      bookmarkHtml = new BookmarkListItemView(
         model: bookmark
-      )
+      ).render()
+      @$el.append(bookmarkHtml)
     @
 
   viewData: ->
