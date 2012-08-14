@@ -1,0 +1,10 @@
+- if signed_in
+  :javascript
+    window.userObject = {
+      id: "#{user.id}",
+      name: "#{user.name}",
+      email: "#{user.email}"
+    };
+- else
+  :javascript
+    window.userObject = null;

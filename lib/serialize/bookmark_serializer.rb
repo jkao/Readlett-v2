@@ -1,11 +1,11 @@
 class Serialize::BookmarkSerializer
-  def self.as_json(bookmark)
+  def self.as_json(bookmark, current_user=nil)
     return {} if bookmark.nil?
 
     if bookmark.errors.present?
       { :errors => bookmark.errors.full_messages }.as_json
     else
-      {
+      json = {
         :id => bookmark.id,
         :title => bookmark.title,
         :description => bookmark.description,
@@ -21,7 +21,19 @@ class Serialize::BookmarkSerializer
         :user => {
           :name => bookmark.user.nil? ? "" : bookmark.user.name
         }
-      }.as_json
+      }
+      
+      # If User is Authenticated, We Want Authentication Details
+      if current_user
+        auth_hash = {
+          :is_owner => bookmark.is_owner?(current_user),
+          :follows => current_user.follows?(bookmark)
+        }
+
+        json.merge!(auth_hash)
+      end
+
+      json.as_json
     end
   end
 

@@ -37,6 +37,12 @@ class BookmarksControllerTest < ActionController::TestCase
       assert assigns(:bookmarks).include?(@bookmark)
     end
 
+    should "GET share" do
+      get :share, :id => @bookmark.id
+      assert_response :success
+      assert_equal @bookmark, assigns(:bookmark)
+    end
+
     should "POST create" do
       attributes = FactoryGirl.attributes_for(:bookmark)
 

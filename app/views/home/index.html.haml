@@ -5,5 +5,5 @@
   .span12
     %h2 Recent Bookmarks
 .row
-  #recent-bookmarks.span12{ :"data-bookmarks" => Serialize::BookmarksSerializer.as_json(@bookmarks).to_json}
+  #recent-bookmarks.span12{ :"data-bookmarks" => Serialize::BookmarksSerializer.as_json(@bookmarks, current_user).to_json}
     - # Backbone View Populates this

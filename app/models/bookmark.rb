@@ -19,12 +19,12 @@ class Bookmark < ActiveRecord::Base
 
   def self.get_popular(age = 1.month)
     self.safe_query \
-        #.where("bookmarks.created_at > ?", (Time.now.utc - age))
         .order("bookmarks.views ASC, bookmarks.likes_count ASC, bookmarks.id DESC")
+        #.where("bookmarks.created_at > ?", (Time.now.utc - age))
   end
 
   def self.search(query)
-    self.safe_query
+    self.safe_query \
         .where("bookmarks.title LIKE ? OR bookmarks.description LIKE ?", query, query) \
         .order("bookmarks.views ASC, bookmarks.likes_count ASC, bookmarks.id DESC")
   end
@@ -81,7 +81,7 @@ class Bookmark < ActiveRecord::Base
 
   # Determine if a user account is the creator of a bookmark
   def is_owner?(user)
-    user && (self.user_id == user.id)
+    !user.nil? && (self.user_id == user.id)
   end
 
   # Determine if a user has permission to view a bookmark

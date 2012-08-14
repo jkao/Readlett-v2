@@ -1,10 +1,10 @@
 class Serialize::BookmarksSerializer
-  def self.as_json(bookmarks)
+  def self.as_json(bookmarks, current_user=nil)
     if bookmarks.nil? || bookmarks.empty?
       {}
     else
       bookmarks.map { |bookmark|
-        Serialize::BookmarkSerializer.as_json(bookmark)
+        Serialize::BookmarkSerializer.as_json(bookmark, current_user)
       }
     end
   end

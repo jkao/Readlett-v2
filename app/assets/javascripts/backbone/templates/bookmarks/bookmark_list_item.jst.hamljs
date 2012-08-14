@@ -6,10 +6,14 @@
     .span2
       %ul.buttons
         %li.save
-          %a{ href: "#", rel: "tooltip", title: "Save!" }
-            %i.icon-save
+          :if (bookmark.attributes.follows)
+            %a.saved{ href: "#", rel: "tooltip", title: "Unsave" }
+              %i.icon-save
+          :if (!bookmark.attributes.follows)
+            %a.save{ href: "#", rel: "tooltip", title: "Save!" }
+              %i.icon-save
         %li.share
-          %a{ href: "#", rel: "tooltip", title: "Share!" }
+          %a.share{ href: "/bookmarks/#{bookmark.attributes.id}/share/", target: "_self", rel: "tooltip", title: "Share!" }
             %i.icon-share
     %hr
   .row.bottom
@@ -20,3 +24,5 @@
           %span.label.label-info= "#" + tag.name
     .span4
         %em.meta Read by #{bookmark.attributes.user.name} (#{bookmark.attributes.created_at})
+        %em.meta Is Owner? #{bookmark.attributes.is_owner}
+        %em.meta Follows? #{bookmark.attributes.follows}

@@ -37,6 +37,9 @@
     list-style-type: none;
 
     a { text-decoration: none; }
+    a.saved {
+      color: $green;
+    }
     li { display: inline; }
   }
 }

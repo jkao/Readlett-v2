@@ -13,6 +13,14 @@ FactoryGirl.define do
     end
   end
 
+  factory :bookmark_with_multiple_users => :bookmark do
+    after_build do |b|
+      3.times do
+        b.follow!(FactoryGirl.build(:user))
+      end
+    end
+  end
+
   factory :bookmark_with_tags, :parent => :bookmark do
     after_build do |b|
       3.times do
