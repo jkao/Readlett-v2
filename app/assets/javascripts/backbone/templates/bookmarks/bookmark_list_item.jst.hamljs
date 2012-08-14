@@ -13,7 +13,7 @@
             %a.save{ href: "#", rel: "tooltip", title: "Save!" }
               %i.icon-save
         %li.share
-          %a.share{ href: "/bookmarks/#{bookmark.attributes.id}/share/", target: "_self", rel: "tooltip", title: "Share!" }
+          %a.share{ href: "/bookmarks/#{bookmark.attributes.id}/share/", target: "_window", rel: "tooltip", title: "Share!" }
             %i.icon-share
     %hr
   .row.bottom
