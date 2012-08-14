@@ -28,8 +28,8 @@ class window.BookmarkListItemView extends Backbone.View
           link.attr("title", "Saved!")
               .tooltip("fixTitle")
               .tooltip("show")
+          @model.attributes.follows = true
           @delegateEvents()
-          console.log("DELEGATE FOLLOW")
           false
       )
     else
@@ -39,7 +39,6 @@ class window.BookmarkListItemView extends Backbone.View
   unsaveBookmark: (el) =>
     if userObject && @model.attributes.follows
       link = @$el.find("li.save a.saved")
-      console.log(link)
       link.attr("title", "Unfollowing...")
           .tooltip("fixTitle")
           .tooltip("show")
@@ -52,8 +51,8 @@ class window.BookmarkListItemView extends Backbone.View
           link.attr("title", "Save!")
               .tooltip("fixTitle")
               .tooltip("show")
+          @model.attributes.follows = false
           @delegateEvents()
-          console.log("DELEGATE UNFOLLOW")
           # TODO: Handle Error Case
           false
       )
