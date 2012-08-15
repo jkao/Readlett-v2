@@ -1,2 +1,32 @@
-TODO
-%iframe{ :url => "127.0.0.1" }
+#share-bar.navbar.navbar-fixed-top{ :"data-bookmark" => Serialize::BookmarkSerializer.as_json(@bookmark, current_user).to_json}
+  .navbar-inner
+    .container
+      = link_to "Mediac", root_path, :class => "brand"
+      .nav-collapse
+        %ul.nav
+          %li
+            - if current_user.follows?(@bookmark)
+              %a.saved{ :href => "#" }
+                %i.icon-save
+                Saved!
+            - else
+              %a.save{ :href => "#" }
+                %i.icon-save
+                Save
+        %ul.nav.pull-right
+          - if !signed_in?
+            %li
+              %a.bold{ :href => "#" }
+                %i.icon-ok
+                Sign up for an Account!
+          %li 
+            %a{ :href => @bookmark.url }
+              %i.icon-remove
+              Hide Bar
+          %li 
+            %a.report{ :href => "#" }
+              %i.icon-exclamation-sign
+              Report Link!
+%iframe.share{ :src => @bookmark.url }
+
+= render :partial => "users/user_auth_object", :locals => { :user => current_user, :signed_in => signed_in? }

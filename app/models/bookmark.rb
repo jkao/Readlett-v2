@@ -4,6 +4,7 @@ class Bookmark < ActiveRecord::Base
   belongs_to :user
   has_many :bookmark_user_entries
   has_many :likes
+  has_many :reports, :foreign_key => "complaint_bookmark_id", :class_name => "Report"
   has_and_belongs_to_many :tags
 
   # Validations
@@ -31,6 +32,10 @@ class Bookmark < ActiveRecord::Base
 
   def self.safe_query
     self.where(:private => false, :nsfw => false)
+  end
+
+  def share_url
+    "/bookmarks/#{self.id}/share/"
   end
 
   def increment_view!
@@ -89,4 +94,12 @@ class Bookmark < ActiveRecord::Base
     !self.private || self.is_owner?(user)
   end
 
+  # Create a Report
+  def set_complaint(complainer_id, reason)
+    self.reports << Report.create({ 
+      :reason => reason, 
+      :complainer_user_id => complainer_id, 
+      :complaint_bookmark_id => self.id
+    })
+  end
 end

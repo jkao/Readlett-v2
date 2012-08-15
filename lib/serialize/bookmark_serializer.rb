@@ -10,6 +10,7 @@ class Serialize::BookmarkSerializer
         :title => bookmark.title,
         :description => bookmark.description,
         :url => bookmark.url,
+        :share_url => bookmark.share_url,
         :private => bookmark.private,
         :nsfw => bookmark.nsfw,
         :disqus_uuid => bookmark.disqus_uuid,

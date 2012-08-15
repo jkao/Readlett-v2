@@ -18,12 +18,17 @@ $(->
   # Home Page
   if $('#recent-bookmarks').present()
     window.router = new HomeRouter().initializeRecentBookmarksFeed()
-    Backbone.history.start()
+    #Backbone.history.start()
 
   # Explore Page
   if $('#explore-bookmarks').present()
     window.router = new ExploreRouter()
     Backbone.history.start()
+
+  # Share Bar
+  if $("#share-bar").present()
+    window.router = new ShareRouter().initializeShareBar()
+
 
   # Profiles Page
   # TODO

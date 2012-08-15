@@ -1,0 +1,11 @@
+.well#report-form
+  = form_tag report_bookmark_path(@bookmark) do
+    = hidden_field_tag "complainer_id", (signed_in? ? current_user.id : nil)
+    .clearfix
+      %textarea#reason{ :name => "reason", :cols => "100", :rows => "5", :style => "width: 100%" }
+      = submit_tag "Submit", :class => "btn btn-primary report-submit"
+
+:javascript
+  new window.ReportDialogView({
+    el: "#report-form"
+  });

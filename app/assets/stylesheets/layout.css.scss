@@ -1,12 +1,21 @@
 @import "mixins";
 @import "colors";
 
-body {
-  background: #000;
-}
-
 #wallpaper-1 {
   background: #000 url("/assets/layouts/domo-wallpaper2.jpg") no-repeat center center fixed;
+}
+#share {
+
+  #share-bar {
+    border-bottom: $blue solid 5px;
+  }
+
+  iframe.share {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 45px;
+  }
 }
 
 #main-nav {

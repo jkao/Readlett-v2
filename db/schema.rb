@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120415063150) do
+ActiveRecord::Schema.define(:version => 20120814215526) do
 
   create_table "authorizations", :force => true do |t|
     t.string  "provider", :null => false
@@ -74,10 +74,12 @@ ActiveRecord::Schema.define(:version => 20120415063150) do
   end
 
   create_table "reports", :force => true do |t|
-    t.integer "complaint_bookmark_id"
-    t.integer "complaint_user_id"
-    t.integer "complainer_user_id"
-    t.text    "reason",                :limit => 255
+    t.integer  "complaint_bookmark_id"
+    t.integer  "complaint_user_id"
+    t.integer  "complainer_user_id"
+    t.text     "reason",                :limit => 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "tags", :force => true do |t|

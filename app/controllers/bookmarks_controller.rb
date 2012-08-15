@@ -3,7 +3,7 @@ class BookmarksController < ApplicationController
 
   BOOKMARK_PRIVACY_CHECK_MEMBERS = [:index, :search, :create, :popular]
 
-  before_filter :auth_check, :except => [:index, :show, :search, :redirect, :popular, :share]
+  before_filter :auth_check, :except => [:index, :show, :search, :redirect, :popular, :share, :report]
   before_filter :load_bookmark_from_params, :except => BOOKMARK_PRIVACY_CHECK_MEMBERS
   before_filter :bookmark_privacy_check, :except => BOOKMARK_PRIVACY_CHECK_MEMBERS
 
@@ -68,6 +68,12 @@ class BookmarksController < ApplicationController
   end
 
   def share
+    render :layout => "share"
+  end
+
+  def report
+    @bookmark.set_complaint(params[:complainer_id], params[:reason])
+    render :status => 200, :nothing => true
   end
 
   private
@@ -77,9 +83,7 @@ class BookmarksController < ApplicationController
   end
 
   def bookmark_privacy_check
-    puts @bookmark.inspect
-    puts @bookmark.user_can_see?(current_user)
-    render 404 and return unless @bookmark && @bookmark.user_can_see?(current_user)
+    render :status => 404 and return unless @bookmark && @bookmark.user_can_see?(current_user)
   end
 
   # Prevent mass-assignment exploits

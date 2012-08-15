@@ -1,12 +1,11 @@
 #main-nav.navbar.navbar-fixed-top
   .navbar-inner
     .container
-      %a.btn.btn-navbar{ :"data-toggle" => "collapse", :"data-target" => ".nav-collapse" }
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
       = link_to "Mediac", root_path, :class => "brand"
       .nav-collapse
+        - if signed_in?
+          %ul.nav
+            %li= link_to "My Bookmarks", "#"
         %ul.nav.pull-right
           %li= link_to "Bookmarklet", "#", { :"data-toggle" => "modal", :"data-target" => "#bookmarklet-code-dialog" }
           - if signed_in?

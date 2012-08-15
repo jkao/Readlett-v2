@@ -2,7 +2,9 @@
   .row
     .span10
       %span.title-span
-        %a.title{ href: "#{bookmark.attributes.url}" }= bookmark.attributes.title
+        %i.icon-link
+        %a.title{ href: "#{bookmark.attributes.share_url}", target: "_window" }
+          = bookmark.attributes.title
     .span2
       %ul.buttons
         %li.save
@@ -13,7 +15,7 @@
             %a.save{ href: "#", rel: "tooltip", title: "Save!" }
               %i.icon-save
         %li.share
-          %a.share{ href: "/bookmarks/#{bookmark.attributes.id}/share/", target: "_window", rel: "tooltip", title: "Share!" }
+          %a.share{ href: bookmark.attributes.share_url, target: "_window", rel: "tooltip", title: "Share!" }
             %i.icon-share
     %hr
   .row.bottom

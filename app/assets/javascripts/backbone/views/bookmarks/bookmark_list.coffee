@@ -1,6 +1,6 @@
 class window.BookmarkListView extends Backbone.View
 
-  events: {} # TODO
+  events: null
 
   initialize: (options) ->
     @render()

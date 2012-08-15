@@ -1,0 +1,9 @@
+#reports-dialog.modal.fade{ :style => "display: none;" }
+  .modal-header
+    = link_to "x", "#", { :class => "close", :"data-dismiss" => "modal" }
+    %h3 File a Report
+  .modal-body.center
+    %h4 Bad Link? 404? NSFW? Report it here!
+    = render :partial => "reports/form"
+  .modal-footer
+    = link_to "Cancel", "#", { :class => "btn", :"data-dismiss" => "modal" }

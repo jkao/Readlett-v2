@@ -1,0 +1,27 @@
+!!! 5
+%html
+  %head
+    %title
+      #{yield(:title).empty? ? default_title : yield(:title)} | Mediac
+    - # TODO: Use Bookmark Specific Attributes
+    %meta{ :name => "description",
+          :content => "Mediac is a web platform for sharing and keeping track of awesome Internet content! Never lose track of your bookmarks and discover new things to digest." }
+
+    %meta{ :property => "og:title", :content => "Mediac"}
+    %meta{ :property => "og:type", :content => "website"}
+    %meta{ :property => "og:image", :content => ""}
+    %meta{ :property => "og:url", :content => "http://mediac.co"}
+    %meta{ :property => "og:title", :content => "Mediac"}
+    %meta{ :property => "og:description", :content => "Mediac is a web platform for sharing and keeping track of awesome Internet content! Never lose track of your bookmarks and discover new things to digest."}
+
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+  %body#share
+    - if !signed_in?
+      = render :partial => "sessions/sign_in_dialog"
+    = render :partial => "reports/dialog"
+    = yield

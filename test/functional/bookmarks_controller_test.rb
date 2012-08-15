@@ -20,6 +20,23 @@ class BookmarksControllerTest < ActionController::TestCase
       assert_equal @bookmark, assigns(:bookmark)
     end
 
+    should "POST report logged in" do
+      reason = "404 TESTING: #{UUID.generate(:compact)}"
+      post :report, { 
+                      :id => @bookmark.id, 
+                      :complainer_id => @user.id,
+                      :reason => reason
+                    }
+      assert_response :success
+
+      report = Report.order(:created_at).first
+
+      assert_not_nil report
+      assert_equal reason, report.reason
+      assert_equal @bookmark.id, report.bookmark.id
+      assert_equal @user.id, report.user.id
+    end
+
     should "GET redirect" do
       original_views = @bookmark.views
 
@@ -200,5 +217,21 @@ class BookmarksControllerTest < ActionController::TestCase
         assert_redirected_to login_path
       end
     end
+
+      should "POST report not logged in" do
+        reason = "404 TESTING: #{UUID.generate(:compact)}"
+        post :report, { 
+                        :id => @bookmark.id, 
+                        :reason => reason
+                      }
+        assert_response :success
+
+        report = Report.order(:created_at).first
+
+        assert_not_nil report
+        assert_equal reason, report.reason
+        assert_equal @bookmark.id, report.bookmark.id
+        assert_equal nil, report.user
+      end
   end
 end

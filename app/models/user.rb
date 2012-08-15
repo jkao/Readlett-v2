@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :bookmarks
   has_many :bookmark_user_entries
   has_many :likes
+  has_many :reports, :foreign_key => "complainer_user_id", :class_name => "Report"
 
   # Validations
   validates_presence_of :name, :email

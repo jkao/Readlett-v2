@@ -24,6 +24,7 @@ Readlett::Application.routes.draw do
       post :follow
       post :unfollow
       post :update_position
+      post :report
       get :redirect
       get :share
     end
