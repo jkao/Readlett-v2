@@ -44,4 +44,14 @@ class User < ActiveRecord::Base
                                             .first
   end
 
+  # For now, we are not using the 'finished' column
+  # We also delete bookmark user entries of that bookmark when we
+  # unfollow
+  def current_bookmarks
+    self.bookmark_user_entries \
+        .order("created_at DESC") \
+        .map { |bue| bue.bookmark } \
+        .uniq!
+  end
+
 end

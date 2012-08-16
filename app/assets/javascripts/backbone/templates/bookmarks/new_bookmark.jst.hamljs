@@ -1,0 +1,19 @@
+#new-bookmark-form
+  .well
+    %h3 Add a New Bookmark to Start Tracking!
+    %hr
+    %form
+      .control-group.url
+        %label.url
+          %i.icon-globe
+          %strong URL
+          %span.error-messages.pull-right
+        %input.url{ type: "text", placeholder: "http://www.example.com" }
+      .control-group
+        %label.tags
+          %i.icon-tags
+          %strong Tags
+          %span.error-messages.pull-right
+        %input.tags{ type: "text", placeholder: "Separate Tags with Commas" }
+      .form-actions
+        %button.btn.btn-primary.create-new-bookmark{ type: "submit" } Create New Bookmark!

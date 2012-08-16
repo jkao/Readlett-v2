@@ -9,9 +9,7 @@ class UsersController < ApplicationController
 
   def me
     @user = current_user
-    @bookmarks = @user.bookmark_user_entries \
-                      .order("id DESC") \
-                      .map { |bue| bue.bookmark }
+    @bookmarks = @user.current_bookmarks
   end
 
   def settings

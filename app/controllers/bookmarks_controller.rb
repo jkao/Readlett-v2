@@ -76,6 +76,10 @@ class BookmarksController < ApplicationController
     render :status => 200, :nothing => true
   end
 
+  def preview
+    # TODO
+  end
+
   private
 
   def load_bookmark_from_params

@@ -30,8 +30,10 @@ $(->
     window.router = new ShareRouter().initializeShareBar()
 
 
-  # Profiles Page
-  # TODO
+  # My Bookmarks Page
+  if $("#my-bookmarks").present()
+    window.router = new MyBookmarksRouter()
+    Backbone.history.start()
 
   null
 )

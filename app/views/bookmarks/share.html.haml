@@ -5,7 +5,7 @@
       .nav-collapse
         %ul.nav
           %li
-            - if current_user.follows?(@bookmark)
+            - if signed_in? && current_user.follows?(@bookmark)
               %a.saved{ :href => "#" }
                 %i.icon-save
                 Saved!
@@ -16,7 +16,7 @@
         %ul.nav.pull-right
           - if !signed_in?
             %li
-              %a.bold{ :href => "#" }
+              %a.bold{ :"data-toggle" => "modal", :"data-target" => "#sign-in-dialog", :href => "#" }
                 %i.icon-ok
                 Sign up for an Account!
           %li 

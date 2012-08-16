@@ -1,0 +1,10 @@
+%ul
+  %li#show
+    %i.icon-bookmark
+    My Bookmarks
+  %li#up
+    %i.icon-pencil
+    Update Position
+  %li#add
+    %i.icon-plus-sign
+    Add New Bookmark

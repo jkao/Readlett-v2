@@ -2,10 +2,9 @@ class window.BookmarkListItemView extends Backbone.View
 
   BOOKMARK_LIST_ITEM = "bookmarks/bookmark_list_item"
 
-  events: {
+  events:
     "click .bookmark li.save a.save" : 'saveBookmark'
     "click .bookmark li.save a.saved" : 'unsaveBookmark'
-  }
 
   initialize: (options) ->
     @render()

@@ -75,7 +75,7 @@ class Bookmark < ActiveRecord::Base
   def unfollow!(user)
     return unless user.follows?(self)
     BookmarkUserEntry.where(:bookmark_id => self.id,
-                            :user_id => user.id).first.destroy
+                            :user_id => user.id).destroy_all
   end
 
   def safe_delete(user)
