@@ -60,22 +60,28 @@ class BookmarksControllerTest < ActionController::TestCase
       assert_equal @bookmark, assigns(:bookmark)
     end
 
+    # TODO: Need to change this for mocking!
     should "POST create" do
-      attributes = FactoryGirl.attributes_for(:bookmark)
+      tags = []
+      5.times do
+        tags << Faker::Internet.domain_word
+      end
+      url = Faker::Internet.url
 
-      post :create, :bookmark => attributes
+      post :create, :url => url, :tags => tags
       assert_response :success
 
-      attributes.slice!(:title, :description, :private, :nsfw, :views, :likes_count)
+      # Find that Bookmark!
       json_response = JSON.parse(@response.body)
       created_bookmark = Bookmark.find(json_response["id"])
-
       assert_not_nil created_bookmark
 
-      attributes.each do |k, v|
-        assert_equal v, json_response[k.to_s]
+      # Check the Tags
+      created_bookmark.tags.each do |tag|
+        assert tags.include?(tag.name.to_s)
       end
 
+      # Make sure the user follows it
       assert @user.follows?(created_bookmark)
     end
 

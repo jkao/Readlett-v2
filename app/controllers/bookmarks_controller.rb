@@ -27,8 +27,37 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    @bookmark = Bookmark.new(params[:bookmark])
-    @bookmark.follow!(current_user) if @bookmark.save
+    @bookmark = Bookmark.new
+
+    begin
+=begin
+      # TODO: Uncomment when you have proper internet
+      site = MetaInspector.new(params[:url])
+
+      @bookmark.url = site.url
+      @bookmark.title = site.title
+      @bookmark.description = site.description
+=end
+      # Set the Bookmark Parameters
+      @bookmark.url = params[:url]
+      @bookmark.title = "TEST SITE #{UUID.generate(:compact)}"
+      @bookmark.description = "TEST DESCRIPTION #{UUID.generate(:compact)}"
+
+      if @bookmark.save # Follow & Tag It
+        @bookmark.follow!(current_user)
+
+        params[:tags].each do |tag|
+          tag_obj = Tag.create_or_use_unique_tag(tag)
+          @bookmark.tags << tag_obj
+        end
+      end
+
+    rescue Exception => e
+      puts e.inspect
+      @bookmark.errors[:base] << "The site you've entered appears to be unavailable or our service is down :("
+      Rails::logger.warn "#{Time.now}: Invalid URL: #{e.inspect} User: #{current_user.inspect} Bookmark: #{@bookmark.inspect}"
+    end
+
     render_json Serialize::BookmarkSerializer.as_json(@bookmark, current_user)
   end
 
@@ -74,10 +103,6 @@ class BookmarksController < ApplicationController
   def report
     @bookmark.set_complaint(params[:complainer_id], params[:reason])
     render :status => 200, :nothing => true
-  end
-
-  def preview
-    # TODO
   end
 
   private

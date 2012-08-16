@@ -23,7 +23,7 @@ class Serialize::BookmarkSerializer
           :name => bookmark.user.nil? ? "" : bookmark.user.name
         }
       }
-      
+
       # If User is Authenticated, We Want Authentication Details
       if current_user
         auth_hash = {

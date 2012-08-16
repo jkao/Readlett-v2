@@ -1,7 +1,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require jquery.masonry
+//= require jquery.ui.core
+//= require jquery.ui.widget
+//= require jquery.ui.mouse
+//= require jquery.ui.position
+//= require jquery.ui.autocomplete
+//= require tag-it
 //= require underscore
 //= require backbone
 //= require backbone_rails_sync

@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   end
 
   def me
+    @url = params[:url]
     @user = current_user
     @bookmarks = @user.current_bookmarks
   end

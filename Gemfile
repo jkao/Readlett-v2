@@ -14,6 +14,7 @@ group :assets do
   gem "twitter-bootstrap-rails"
   gem "font-awesome-rails", :git => "git://github.com/jkao/font-awesome-rails.git"
   gem "ruby-haml-js"
+  gem "jquery-ui-rails"
 end
 
 group :development, :test do
@@ -56,5 +57,4 @@ gem "uuid", "~> 2.3.5"
 gem "symbolize", :require => "symbolize/active_record"
 
 # Web-scraping help
-gem "pismo"
-gem "vidibus-words"
+gem "metainspector"

@@ -9,11 +9,14 @@
           %strong URL
           %span.error-messages.pull-right
         %input.url{ type: "text", placeholder: "http://www.example.com" }
-      .control-group
+      .control-group.tags
         %label.tags
           %i.icon-tags
           %strong Tags
           %span.error-messages.pull-right
         %input.tags{ type: "text", placeholder: "Separate Tags with Commas" }
+      .control-group.general-errors.error
+        %label.general-errors
+          %span.error-messages
       .form-actions
         %button.btn.btn-primary.create-new-bookmark{ type: "submit" } Create New Bookmark!

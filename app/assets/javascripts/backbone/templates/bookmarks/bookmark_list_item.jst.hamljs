@@ -26,5 +26,3 @@
           %span.label.label-info= "#" + tag.name
     .span4
         %em.meta Read by #{bookmark.attributes.user.name} (#{bookmark.attributes.created_at})
-        %em.meta Is Owner? #{bookmark.attributes.is_owner}
-        %em.meta Follows? #{bookmark.attributes.follows}
