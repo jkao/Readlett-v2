@@ -42,6 +42,7 @@ class BookmarksController < ApplicationController
       @bookmark.url = params[:url]
       @bookmark.title = "TEST SITE #{UUID.generate(:compact)}"
       @bookmark.description = "TEST DESCRIPTION #{UUID.generate(:compact)}"
+      @bookmark.user = current_user
 
       if @bookmark.save # Follow & Tag It
         @bookmark.follow!(current_user)

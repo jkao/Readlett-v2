@@ -5,13 +5,19 @@ class window.MyBookmarksRouter extends Backbone.Router
     'update'  : 'updateBookmarks'
 
   showBookmarks: ->
+    # Load Menu
     @changeMenuView("show")
+
+    # Load Content
+    new ShowMyBookmarksView({
+      el: "#content"
+    })
 
   createBookmark: ->
     # Load Menu
     @changeMenuView("add")
 
-    # Load Content Section
+    # Load Content
     contentEl = $("#content")
     new NewBookmarkView({
       el: contentEl,
@@ -19,15 +25,19 @@ class window.MyBookmarksRouter extends Backbone.Router
     })
 
   updateBookmarks: ->
+    # Load Menu
     @changeMenuView("up")
+
+    # Load Content
+    contentEl = $("#content")
+    new UpdateMyBookmarksView({
+      el: contentEl,
+      url: contentEl.data("url")
+    })
 
   changeMenuView: (selectedMenuOption) ->
     new MyBookmarksMenuView({
       el: "#menu"
       selectedEl: "##{selectedMenuOption}"
     })
-    @
-
-  # TODO
-  changeContentView: () ->
     @

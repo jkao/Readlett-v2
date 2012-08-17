@@ -16,6 +16,12 @@ Readlett::Application.routes.draw do
   # Users
   match "/me" => "users#me", :as => :me
 
+  resources :users do
+    member do
+      get :bookmarks
+    end
+  end
+
   # Bookmarks
   resources :bookmarks do
     member do

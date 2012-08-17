@@ -43,6 +43,25 @@
       text-align: center;
     }
   }
+
+  #show-my-bookmarks {
+  }
+
+  // Search Bar
+  .search {
+    input.search {
+      vertical-align: baseline;
+      margin-right: 5px;
+    }
+    button {
+      margin-bottom: 2px;
+
+      i.icon-search {
+        vertical-align: baseline;
+        margin-left: 5px;
+      }
+    }
+  }
 }
 
 #bookmarks-pane {

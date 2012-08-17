@@ -1,0 +1,6 @@
+.bookmark
+  .row
+    .span9
+      %span.title-span
+        %i.icon-link
+        %a.title{ href: "#{bookmark.current_entry_url}" } = bookmark.title

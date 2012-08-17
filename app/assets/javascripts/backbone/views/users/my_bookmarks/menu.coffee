@@ -28,13 +28,12 @@ class window.MyBookmarksMenuView extends Backbone.View
 
     # Title
     @updateTitle(options.selectedEl)
-    console.log(options)
+
     false
 
   render: ->
     # Render the Template
-    @$el.html(JST["#{window.TEMPLATES}/users/my_bookmarks_menu"])
-
+    @$el.html(JST["#{window.TEMPLATES}/users/my_bookmarks/menu"])
 
   changeUrlToAdd: ->
     window.router.navigate("create", trigger:true)

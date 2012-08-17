@@ -1,0 +1,11 @@
+#show-my-bookmarks.row
+  .meta.span9
+    .row
+      .search.span5.offset4
+        %input.search{ type: "text" }
+        %button.btn{ type: "submit" }
+          Search
+          %i.icon-search
+    .row
+      .bookmarks
+        .span9.loading &nbsp;
