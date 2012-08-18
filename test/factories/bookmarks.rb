@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :bookmark do
     title { Faker::Company.name }
-    description { Faker::Company.bs }
+    description { Faker::Lorem.paragraph }
     url { "http://#{Faker::Internet.domain_name}" }
     disqus_uuid { UUID.generate(:compact) }
     views 0

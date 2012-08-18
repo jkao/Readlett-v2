@@ -3,7 +3,7 @@
     .row
       .search.span5.offset4
         %input.search{ type: "text" }
-        %button.btn{ type: "submit" }
+        %button.btn.search{ type: "submit" }
           Search
           %i.icon-search
     .row

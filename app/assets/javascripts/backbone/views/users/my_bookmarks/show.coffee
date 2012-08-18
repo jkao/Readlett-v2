@@ -1,5 +1,7 @@
 class window.ShowMyBookmarksView extends Backbone.View
 
+  MIN_SEARCH_LENGTH = 0
+
   events:
     "keyup input.search" : "filterBookmarks"
     "click button.search" : "filterBookmarks"
@@ -12,7 +14,8 @@ class window.ShowMyBookmarksView extends Backbone.View
     @$el.fadeOut( ->
       # Show the General Layout
       $(this).html(JST["#{window.TEMPLATES}/users/my_bookmarks/show"])
-             .fadeIn()
+      $(".bookmarks:first").html("<div class='span9 loading'>&nbsp;</div>")
+      $(this).fadeIn()
 
       # Load the Bookmarks
       $.get("/users/#{window.userObject.id}/bookmarks", (resp) =>
@@ -21,20 +24,25 @@ class window.ShowMyBookmarksView extends Backbone.View
     )
     @
 
-  renderBookmarks: (resp) ->
+  renderBookmarks: (resp) =>
     bookmarksEl = $(".bookmarks:first")
     bookmarksEl.html("")
 
-    console.log(bookmarksEl)
-
-    _.each(resp, (bookmark) ->
-      #console.log("WTF", bookmark)
-      new MyBookmarksBookmarkView({
-        el: bookmarksEl,
+    _.each(resp, (bookmark) =>
+      bookmarkEl = new MyBookmarksBookmarkView({
         model: bookmark
-      })
+      }).render()
+      bookmarksEl.append(bookmarkEl)
     )
+
     @
 
   filterBookmarks: ->
-    console.log "KEYPRESSED!!! #{$("input.search").val()}"
+    # Trim and Refine the Search Terms
+    searchVal = $("input.search").val().replace /^\s+|\s+$/g, ""
+
+    # Do the Search if Above the Constraint
+    if searchVal.length >= MIN_SEARCH_LENGTH
+      $(".bookmark").trigger("search:bookmarks", searchVal)
+    else
+      $(".bookmark").trigger("show:bookmarks", searchVal)

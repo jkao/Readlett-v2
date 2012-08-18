@@ -38,6 +38,16 @@ class Bookmark < ActiveRecord::Base
     "/bookmarks/#{self.id}/share/"
   end
 
+  # E.g. - http://wikipedia.org/asdsad?q=1 -> wikipedia.org
+  def domain_url
+    self.url.match(/[a-z0-9]+\.[a-z0-9]+/i).to_s
+  end
+
+  # E.g. - http://wikipedia.org/asdsad?q=1 -> http://wikipedia.org
+  def domain_url_with_scheme
+    self.url.match(/https?:\/\/[a-z0-9]+\.[a-z0-9]+/i).to_s
+  end
+
   def increment_view!
     self.views += 1
     self.save!

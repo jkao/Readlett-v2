@@ -1,5 +1,5 @@
 class Serialize::BookmarkSerializer
-  # TODO: Should refactor this DRY
+  # TODO: Change the Title & Description to a MAX Length (see Rails String Helpers)
 
   def self.json_hash(bookmark)
     return {} if bookmark.nil?
@@ -10,8 +10,14 @@ class Serialize::BookmarkSerializer
       {
         :id => bookmark.id,
         :title => bookmark.title,
+        :short_title => (bookmark.title && bookmark.title.length > 64) ? "#{bookmark.title[0..61]}..." : bookmark.title,
         :description => bookmark.description,
+        :short_description => (bookmark.description && bookmark.description.length > 256) ? "#{bookmark.description[0..253]}..." : bookmark.description,
         :url => bookmark.url,
+        :short_url => (bookmark.url && bookmark.url.length > 32) ? "#{bookmark.url[0..29]}..." : bookmark.url,
+        :domain_url => bookmark.domain_url,
+        :short_domain_url => (bookmark.domain_url && bookmark.domain_url.length > 32) ? "#{bookmark.domain_url[0..29]}..." : bookmark.domain_url,
+        :domain_url_with_scheme => bookmark.domain_url_with_scheme,
         :share_url => bookmark.share_url,
         :private => bookmark.private,
         :nsfw => bookmark.nsfw,
@@ -19,8 +25,8 @@ class Serialize::BookmarkSerializer
         :views => bookmark.views,
         :likes_count => bookmark.likes_count,
         :tags => bookmark.tags,
-        :created_at => bookmark.created_at.to_date,
-        :updated_at => bookmark.updated_at.to_date,
+        :created_at => bookmark.created_at.strftime("%b. %d, %Y"),
+        :updated_at => bookmark.updated_at.strftime("%b. %d, %Y"),
         :user => {
           :name => bookmark.user.nil? ? "" : bookmark.user.name
         }
@@ -49,7 +55,7 @@ class Serialize::BookmarkSerializer
     if current_user
       entries_hash = {
         :current_entry_url => current_user.current_bookmark_user_entry(bookmark).current_url,
-        :current_entry_date => current_user.current_bookmark_user_entry(bookmark).created_at
+        :current_entry_date => current_user.current_bookmark_user_entry(bookmark).created_at.strftime("%b. %d, %Y")
       }
       json.merge!(entries_hash)
     end

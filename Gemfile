@@ -57,4 +57,5 @@ gem "uuid", "~> 2.3.5"
 gem "symbolize", :require => "symbolize/active_record"
 
 # Web-scraping help
-gem "metainspector"
+#gem "metainspector"
+gem "pismo"
