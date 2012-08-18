@@ -1,0 +1,19 @@
+#update-my-bookmarks.row
+  #update-messages.row.blue-notification
+    .span9
+      %h4 To Update, Enter a URL and Click the Respective Bookmark to Update Position
+  .meta.span9
+    .row
+      .url.span5
+        .input-prepend
+          %span.add-on
+            %i.icon-globe
+          %input.url{ type: "text", placeholder: "New Url..." }
+      .search.span4
+        .input-prepend
+          %span.add-on
+            %i.icon-search
+          %input.search{ type: "text", placeholder: "Filter Bookmarks..." }
+    .row
+      .bookmarks
+        .span9.loading &nbsp;

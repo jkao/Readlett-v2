@@ -4,7 +4,6 @@ class window.ShowMyBookmarksView extends Backbone.View
 
   events:
     "keyup input.search" : "filterBookmarks"
-    "click button.search" : "filterBookmarks"
 
   initialize: ->
     @render()
@@ -30,7 +29,8 @@ class window.ShowMyBookmarksView extends Backbone.View
 
     _.each(resp, (bookmark) =>
       bookmarkEl = new MyBookmarksBookmarkView({
-        model: bookmark
+        model: bookmark,
+        mode: "show"
       }).render()
       bookmarksEl.append(bookmarkEl)
     )

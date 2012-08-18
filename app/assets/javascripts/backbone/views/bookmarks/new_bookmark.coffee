@@ -48,7 +48,7 @@ class window.NewBookmarkView extends Backbone.View
 
   # Main Client-Side URL Validator
   validateUrl: (el) ->
-    if !el.val().match(/^(https?):[/][/]([0-9a-z])+([\.][0-9a-z]+)+([/][a-z0-9]*)*([?].*)?$/i)
+    if !el.val().match(/^(https?):[/][/]([0-9a-z-])+([\.][0-9a-z]+)+([/][a-z0-9]*)*([?].*)?$/i)
       $(".control-group.url").addClass("error")
       $(".control-group.url .error-messages").text("Looks like a badly formatted URL, buddy! (http://www.example.com)")
       false

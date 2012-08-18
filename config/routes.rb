@@ -19,6 +19,7 @@ Readlett::Application.routes.draw do
   resources :users do
     member do
       get :bookmarks
+      post :update_bookmark_position
     end
   end
 
@@ -29,7 +30,6 @@ Readlett::Application.routes.draw do
       post :unlike
       post :follow
       post :unfollow
-      post :update_position
       post :report
       get :redirect
       get :share

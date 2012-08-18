@@ -1,11 +1,11 @@
 #show-my-bookmarks.row
   .meta.span9
     .row
-      .search.span5.offset4
-        %input.search{ type: "text" }
-        %button.btn.search{ type: "submit" }
-          Search
-          %i.icon-search
+      .search.span4.offset5
+        .input-prepend
+          %span.add-on
+            %i.icon-search
+          %input.search{ type: "text", placeholder: "Filter Bookmarks..." }
     .row
       .bookmarks
         .span9.loading &nbsp;

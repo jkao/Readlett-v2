@@ -6,12 +6,16 @@ class window.MyBookmarksBookmarkView extends Backbone.View
     "search:bookmarks"  : "filterBookmark"
     "show:bookmarks"    : "show"
     "click a.trash"    : "unsaveBookmark"
+    "mouseover .bookmark.row.hover" : "mouseOn" # Events for Updating
+    "mouseout .bookmark.row.hover"  : "mouseOff"
+    "click .bookmark.row.hover"  : "triggerUpdate"
 
   initialize: (options) ->
+    @mode = options.mode
     @render()
 
   render: ->
-    @$el.html(JST["#{window.TEMPLATES}/users/my_bookmarks/bookmark"](bookmark: @model))
+    @$el.html(JST["#{window.TEMPLATES}/users/my_bookmarks/bookmark"](bookmark: @model, mode: @mode))
 
   filterBookmark: (e, searchVal) ->
     if !searchVal or searchVal.length < MIN_SEARCH_LENGTH
@@ -45,3 +49,15 @@ class window.MyBookmarksBookmarkView extends Backbone.View
         alert("An error occurred trying to unsave, please refresh your browser")
       )
     false
+
+  # When Mouse is Over the Div, Replace the Colour
+  mouseOn: ->
+    @$(".hover").addClass("hovered")
+
+  # When Mouse is Off the Div, Replace Original Content
+  mouseOff: ->
+    @$(".hover").removeClass("hovered")
+
+  triggerUpdate: ->
+    @$(".bookmark.row.hover").trigger("update:bookmark", @model.id)
+

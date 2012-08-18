@@ -34,6 +34,8 @@ class UsersController < ApplicationController
   def update_bookmark_position
     @bookmark = Bookmark.find(params[:bookmark_id])
     current_user.update_bookmark_position(@bookmark, params[:new_url])
+
+    render :status => 200, :nothing => true
   end
 
 end

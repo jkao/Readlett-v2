@@ -27,6 +27,21 @@ class UsersControllerTest < ActionController::TestCase
         assert_equal @user, assigns(:user)
         assert_equal @user.current_bookmarks, assigns(:bookmarks)
       end
+
+      should "POST update_bookmark_position" do
+        NEW_URL = "http://new-site-#{UUID.generate(:compact)}.com"
+
+        @bookmark = FactoryGirl.create(:bookmark)
+        @bookmark.follow!(@user)
+
+        assert @user.follows?(@bookmark)
+
+        # Post and Check Response
+        post :update_bookmark_position, :bookmark_id => @bookmark.id, :new_url => NEW_URL
+        assert_response :success
+
+        assert_equal NEW_URL, @user.current_url(@bookmark)
+      end
     end
   end
 end

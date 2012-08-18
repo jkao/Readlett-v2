@@ -47,6 +47,12 @@
   #show-my-bookmarks {
   }
 
+  #update-my-bookmarks {
+    input.url {
+      width: 90%;
+    }
+  }
+
   // Search Bar
   .search {
     input.search {
@@ -66,4 +72,33 @@
 
 #bookmarks-pane {
   padding-top: 5px;
+}
+
+.bookmark-span {
+  margin-left: 40px;
+}
+
+.blue-notification {
+  margin-left: 0;
+  margin-bottom: 10px;
+  .span9 {
+    color: #fff;
+    background-color: $blue;
+    h4 {
+      color: #fff;
+      padding: 5px 0 5px 20px;
+    }
+  }
+}
+.red-notification {
+  margin-left: 0;
+  margin-bottom: 10px;
+  .span9 {
+    color: #fff;
+    background-color: $red;
+    h4 {
+      color: #fff;
+      padding: 5px 0 5px 20px;
+    }
+  }
 }

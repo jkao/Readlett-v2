@@ -1,14 +1,14 @@
-.row
-  .span8.offset1
+.span9.bookmark-span
+  :if mode != "update"
     .bookmark.row
       .row.title-row
-        .span6
+        .span7
           %span.title-span
             :if bookmark.favicon
               %img.favicon{ src: "#{bookmark.favicon}" }
             :if !bookmark.favicon
               %i.icon-link
-            %a.title{ href: "#{bookmark.current_entry_url}", target: "_window" }= bookmark.short_title
+              %a.title{ href: "#{bookmark.current_entry_url}", target: "_window" }= bookmark.short_title
         .span2
           %ul.buttons
             %li.share
@@ -18,14 +18,44 @@
               %a.trash{ href: "#", rel: "tooltip", title: "Delete Bookmark" }
                 %i.icon-trash
       .row
-        .span8
+        .span9
           .meta
             (
             %a.url{ href: "#{bookmark.domain_url_with_scheme}", target: "_window" }= bookmark.short_domain_url
             )
             %span.date= bookmark.current_entry_date
       .row
-        .span8
+        .span9
+          .description= bookmark.short_description
+      .row
+        .span3.offset5
+          .tags
+            &nbsp;
+            :each tag in bookmark.tags
+              %span.label.label-info= "#" + tag.name
+  :if mode == "update"
+    .bookmark.row.hover
+      .hover-message
+        %h3 Click to Update
+      .row.title-row
+        .span7
+          %span.title-span
+            :if bookmark.favicon
+              %img.favicon{ src: "#{bookmark.favicon}" }
+            :if !bookmark.favicon
+              %i.icon-link
+              %a.title= bookmark.short_title
+        .span2
+          %ul.buttons
+      .row
+        .span9
+          .meta
+            (
+            %a.url= bookmark.short_domain_url
+            )
+            %span.date= bookmark.current_entry_date
+      .row
+        .span9
           .description= bookmark.short_description
       .row
         .span3.offset5

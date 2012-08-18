@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class BookmarkTest < ActiveSupport::TestCase
-  context "A bookmark with a few users" do
+  context "A bookmark" do
     setup do
       # TODO
     end
