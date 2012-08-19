@@ -1,0 +1,12 @@
+#feedback-dialog.modal.fade{ :style => "display: none;" }
+  .modal-header
+    = link_to "x", "#", { :class => "close", :"data-dismiss" => "modal" }
+    %h3 Feedback
+  .modal-body
+    %p Comments? Feature Requests? Add Feedback Here!
+    .well
+      %form{ :style => "text-align: center;" }
+        %textarea.message{ :placeholder => "Add Feedback Here", :style => "width: 100%;", :rows => 10 }
+        %button.feedback.btn.btn-primary{ :type => "submit" } Submit!
+  .modal-footer
+    = link_to "Cancel", "#", { :class => "btn", :"data-dismiss" => "modal" }

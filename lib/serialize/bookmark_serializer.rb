@@ -10,7 +10,7 @@ class Serialize::BookmarkSerializer
       {
         :id => bookmark.id,
         :title => bookmark.title,
-        :short_title => (bookmark.title && bookmark.title.length > 64) ? "#{bookmark.title[0..61]}..." : bookmark.title,
+        :short_title => (bookmark.title && bookmark.title.length > 56) ? "#{bookmark.title[0..53]}..." : bookmark.title,
         :description => bookmark.description,
         :short_description => (bookmark.description && bookmark.description.length > 256) ? "#{bookmark.description[0..253]}..." : bookmark.description,
         :url => bookmark.url,

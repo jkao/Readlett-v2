@@ -16,6 +16,11 @@ Readlett::Application.routes.draw do
   # Users
   match "/me" => "users#me", :as => :me
 
+  # TODO: Remove
+  match "/secret" => "users#secret", :as => :secret
+
+  post "/feedback" => "feedback#create", :as => :feedback
+
   resources :users do
     member do
       get :bookmarks

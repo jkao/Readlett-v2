@@ -31,7 +31,13 @@ class SessionsController < ApplicationController
       flash[:success] = "Welcome to Mediac!"
     end
 
-    redirect_to :root
+    # Redirect to Previous Location
+    if session[:return_to].nil?
+      redirect_to :root
+    else
+      redirect_to session[:return_to]
+      session[:return_to] = nil
+    end
   end
 
   def failure

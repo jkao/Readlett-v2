@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
 
   def auth_check
     if current_user.nil?
+      session[:return_to] = params[:redirect].nil? ? request.original_url : "#{params[:redirect]}##{params[:hash]}"
       redirect_to login_path
     end
   end

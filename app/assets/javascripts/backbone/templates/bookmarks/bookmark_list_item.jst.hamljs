@@ -2,9 +2,11 @@
   .row
     .span10
       %span.title-span
-        %i.icon-link
-        %a.title{ href: "#{bookmark.attributes.share_url}", target: "_window" }
-          = bookmark.attributes.title
+        :if bookmark.favicon
+          %img.favicon{ src: "#{bookmark.favicon}" }
+        :if !bookmark.favicon
+          %i.icon-link
+        %a.title{ href: "#{bookmark.attributes.share_url}", target: "_window" }= bookmark.attributes.short_title
     .span2
       %ul.buttons
         %li.save
@@ -17,12 +19,19 @@
         %li.share
           %a.share{ href: bookmark.attributes.share_url, target: "_window", rel: "tooltip", title: "Share!" }
             %i.icon-share
-    %hr
-  .row.bottom
-    .span8
+  .row
+    .span12
+      .meta
+        (
+        %a.url{ href: "#{bookmark.attributes.domain_url_with_scheme}", target: "_window" }= bookmark.attributes.short_domain_url
+        )
+        %span.date= bookmark.attributes.created_at
+  .row
+    .span12
+      .description= bookmark.attributes.short_description
+  .row
+    .span3.offset9
       .tags
         &nbsp;
         :each tag in bookmark.attributes.tags
           %span.label.label-info= "#" + tag.name
-    .span4
-        %em.meta Read by #{bookmark.attributes.user.name} (#{bookmark.attributes.created_at})

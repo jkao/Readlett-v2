@@ -40,7 +40,7 @@ class BookmarksController < ApplicationController
 =end
       # Set the Bookmark Parameters
       @bookmark.url = params[:url]
-      @bookmark.title = "TEST SITE #{UUID.generate(:compact)}"
+      @bookmark.title = "TEST SITE #{UUID.generate(:compact)} nostrum cum fuga. Sit ex incidunt magni maxime delectus architecto et. Veniam velit ab ipsam totam ullam doloribus. Non deleniti ea odit quo eos et. Blanditiis perferendis nostrum necessitatibus voluptatem laudantium dolor consequatur."
       @bookmark.description = "Dolores rem velit quia ducimus nostrum cum fuga. Sit ex incidunt magni maxime delectus architecto et. Veniam velit ab ipsam totam ullam doloribus. Non deleniti ea odit quo eos et. Blanditiis perferendis nostrum necessitatibus voluptatem laudantium dolor consequatur."
       @bookmark.user = current_user
 

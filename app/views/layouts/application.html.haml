@@ -27,6 +27,7 @@
     - if !signed_in?
       = render :partial => "sessions/sign_in_dialog"
     = render :partial => "bookmarklet/bookmarklet_dialog"
+    = render :partial => "feedbacks/feedback_dialog"
     = render :partial => "layouts/header"
     .container
       #main
@@ -37,7 +38,7 @@
     .row
       .span6.offset6
         %ul#lower-nav
-          %li= link_to "Feedback!", "#"
+          %li= link_to "Feedback!", "#", { :"data-toggle" => "modal", :"data-target" => "#feedback-dialog" }
           %li= link_to "Bookmarklet", "#", { :"data-toggle" => "modal", :"data-target" => "#bookmarklet-code-dialog" }
           %li= link_to "FAQ", faq_path
 = render :partial => "users/user_auth_object", :locals => { :user => current_user, :signed_in => signed_in? }

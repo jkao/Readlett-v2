@@ -15,10 +15,14 @@ class window.UpdateMyBookmarksView extends Backbone.View
 
   render: ->
     renderBk = @renderBookmarks
-
     @$el.fadeOut( ->
       $(this).html(JST["#{window.TEMPLATES}/users/my_bookmarks/update"](model: @model))
       $(".bookmarks:first").html("<div class='span9 loading'>&nbsp;</div>")
+
+      if window.bookmarkletUrl.length > 0
+        $("input.url").val(window.bookmarkletUrl)
+                      .trigger("change")
+
       $(this).fadeIn()
 
       # Load the Bookmarks

@@ -9,7 +9,6 @@ class window.ReportDialogView extends Backbone.View
     # Disable the Submit Button
     $(".report-submit").addClass("disabled")
                        .val("Sending Report...")
-    @delegateEvents()
 
     # Set up Post Action
     values = {

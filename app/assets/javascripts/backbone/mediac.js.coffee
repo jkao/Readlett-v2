@@ -35,5 +35,11 @@ $(->
     window.router = new MyBookmarksRouter()
     Backbone.history.start()
 
+  # Feedback Dialog
+  if $("#feedback-dialog").present()
+    new FeedbackDialogView({
+      el: "#feedback-dialog"
+    })
+
   null
 )

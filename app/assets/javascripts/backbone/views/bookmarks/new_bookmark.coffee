@@ -8,12 +8,19 @@ class window.NewBookmarkView extends Backbone.View
     @render()
 
   render: ->
+    _this = this
+
     @$el.fadeOut( ->
       $(this).html(JST["#{window.TEMPLATES}/bookmarks/new_bookmark"](@viewData))
              .fadeIn()
       $("input.tags").tagit({
         caseSensitive: false
       })
+
+      # If Redirected from Bookmarklet, Prepopulate the URL
+      if window.bookmarkletUrl.length > 0
+        _this.$("input.url").val(window.bookmarkletUrl)
+                            .trigger("change")
     )
     @
 

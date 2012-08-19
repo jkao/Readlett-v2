@@ -8,7 +8,7 @@
               %img.favicon{ src: "#{bookmark.favicon}" }
             :if !bookmark.favicon
               %i.icon-link
-              %a.title{ href: "#{bookmark.current_entry_url}", target: "_window" }= bookmark.short_title
+            %a.title{ href: "#{bookmark.current_entry_url}", target: "_window" }= bookmark.short_title
         .span2
           %ul.buttons
             %li.share

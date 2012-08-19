@@ -3,9 +3,15 @@
     = link_to "x", "#", { :class => "close", :"data-dismiss" => "modal" }
     %h3 Bookmarklet
   .modal-body.center
-    %a.btn.bookmarklet{ href: "javascript:alert('hello');" } Save on Mediac!
+    %a.btn.bookmarklet{ :href => bookmarklet_code } Save on Mediac!
     %hr
     %p Drag the Bookmarklet code to your Bookmark Bar and Start Saving!
     = render :partial => "bookmarklet/bookmarklet_code"
   .modal-footer
     = link_to "Cancel", "#", { :class => "btn", :"data-dismiss" => "modal" }
+
+:javascript
+  $("a.btn.bookmarklet").click(function(e) {
+    e.preventDefault();
+    alert("Drag the Bookmarklet to your Bookmarks Bar to Use It");
+  });
