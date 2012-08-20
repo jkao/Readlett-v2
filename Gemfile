@@ -2,10 +2,10 @@ source "https://rubygems.org"
 
 # Core stuff
 gem "rails", "3.2.1"
+gem "thin"
 
 group :production do # For Heroku
   gem "pg"
-  gem "thin"
 end
 
 # Gems used only for assets and not required
