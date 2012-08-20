@@ -30,17 +30,17 @@ ActiveRecord::Schema.define(:version => 20120819160831) do
   end
 
   create_table "bookmarks", :force => true do |t|
-    t.string   "title",       :limit => 64,                     :null => false
-    t.text     "description", :limit => 255
-    t.string   "url",                                           :null => false
+    t.string   "title",       :limit => 64,                    :null => false
+    t.text     "description"
+    t.string   "url",                                          :null => false
     t.integer  "user_id"
-    t.boolean  "private",                    :default => false, :null => false
-    t.boolean  "nsfw",                       :default => false, :null => false
+    t.boolean  "private",                   :default => false, :null => false
+    t.boolean  "nsfw",                      :default => false, :null => false
     t.string   "disqus_uuid"
     t.integer  "views"
-    t.datetime "created_at",                                    :null => false
-    t.datetime "updated_at",                                    :null => false
-    t.integer  "likes_count",                :default => 0
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
+    t.integer  "likes_count",               :default => 0
     t.string   "favicon"
   end
 
@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(:version => 20120819160831) do
     t.integer  "complaint_bookmark_id"
     t.integer  "complaint_user_id"
     t.integer  "complainer_user_id"
-    t.text     "reason",                :limit => 255
+    t.text     "reason"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -96,14 +96,14 @@ ActiveRecord::Schema.define(:version => 20120819160831) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",       :limit => 64,                     :null => false
+    t.string   "email",       :limit => 64,                    :null => false
     t.string   "name"
     t.string   "url"
-    t.text     "description", :limit => 255
+    t.text     "description"
     t.string   "disqus_uuid"
-    t.datetime "created_at",                                    :null => false
-    t.datetime "updated_at",                                    :null => false
-    t.boolean  "nsfw",                       :default => false
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
+    t.boolean  "nsfw",                      :default => false
   end
 
 end

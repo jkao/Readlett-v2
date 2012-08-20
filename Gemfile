@@ -3,10 +3,7 @@ source "https://rubygems.org"
 # Core stuff
 gem "rails", "3.2.1"
 gem "thin"
-
-group :production do # For Heroku
-  gem "pg"
-end
+gem "pg"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -22,8 +19,6 @@ group :assets, :production do # Heroku requires you to have these as part of the
 end
 
 group :development, :test do
-  gem "sqlite3"
-
   # Helps populate data
   gem "faker"
   gem "factory_girl_rails", "~> 2.0"
