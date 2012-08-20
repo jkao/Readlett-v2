@@ -1,6 +1,6 @@
 module ApplicationHelper
   MEDIAC_QUOTE = "Bookmarking made Simple"
-  WALLPAPER_COUNT = 1
+  WALLPAPER_COUNT = 4
 
   # Set title of layout page
   def title(page_title)
