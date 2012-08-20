@@ -2,7 +2,11 @@ source "https://rubygems.org"
 
 # Core stuff
 gem "rails", "3.2.1"
-gem "sqlite3"
+
+group :production do # For Heroku
+  gem "pg"
+  gem "thin"
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -18,6 +22,8 @@ group :assets do
 end
 
 group :development, :test do
+  gem "sqlite3"
+
   # Helps populate data
   gem "faker"
   gem "factory_girl_rails", "~> 2.0"
@@ -25,9 +31,6 @@ group :development, :test do
   # Make test output nicer
   gem "redgreen"
   gem "test-unit", "1.2.3"
-end
-
-group :development do
 end
 
 group :test do
