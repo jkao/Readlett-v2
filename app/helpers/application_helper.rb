@@ -12,7 +12,8 @@ module ApplicationHelper
   end
 
   def wallpaper_id
-    "wallpaper-#{rand(WALLPAPER_COUNT) + 1}"
+    session[:wallpaper] ||= "wallpaper-#{rand(WALLPAPER_COUNT) + 1}"
+    session[:wallpaper]
   end
 
   def bookmarklet_code

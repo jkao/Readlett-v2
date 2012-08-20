@@ -17,7 +17,7 @@ Readlett::Application.routes.draw do
   match "/me" => "users#me", :as => :me
 
   # TODO: Remove
-  match "/secret" => "users#secret", :as => :secret
+  #match "/secret" => "users#secret", :as => :secret
 
   post "/feedback" => "feedback#create", :as => :feedback
 

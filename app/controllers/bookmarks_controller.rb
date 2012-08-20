@@ -30,18 +30,14 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new
 
     begin
-=begin
-      # TODO: Uncomment when you have proper internet
-      site = MetaInspector.new(params[:url])
+      # Create the Scraper
+      site = Pismo::Document.new(params[:url])
 
+      # Set the Bookmark Parameters
       @bookmark.url = site.url
       @bookmark.title = site.title
-      @bookmark.description = site.description
-=end
-      # Set the Bookmark Parameters
-      @bookmark.url = params[:url]
-      @bookmark.title = "TEST SITE #{UUID.generate(:compact)} nostrum cum fuga. Sit ex incidunt magni maxime delectus architecto et. Veniam velit ab ipsam totam ullam doloribus. Non deleniti ea odit quo eos et. Blanditiis perferendis nostrum necessitatibus voluptatem laudantium dolor consequatur."
-      @bookmark.description = "Dolores rem velit quia ducimus nostrum cum fuga. Sit ex incidunt magni maxime delectus architecto et. Veniam velit ab ipsam totam ullam doloribus. Non deleniti ea odit quo eos et. Blanditiis perferendis nostrum necessitatibus voluptatem laudantium dolor consequatur."
+      @bookmark.description = (site.lede.nil?) ? site.sentences(2) : site.lede
+      @bookmark.favicon = site.favicon
       @bookmark.user = current_user
 
       if @bookmark.save # Follow & Tag It

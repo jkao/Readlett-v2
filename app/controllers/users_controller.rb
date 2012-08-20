@@ -39,10 +39,10 @@ class UsersController < ApplicationController
   end
 
   # TODO: Remove!
-  def secret
-    session[:user_id] = User.where(:email => "jeff.kao.000@gmail.com").first.id
-    render :nothing => true
-  end
+  #def secret
+    #session[:user_id] = User.where(:email => "jeff.kao.000@gmail.com").first.id
+    #render :nothing => true
+  #end
 
 end
 

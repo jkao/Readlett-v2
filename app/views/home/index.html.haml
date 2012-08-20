@@ -5,5 +5,16 @@
   .span12
     %h2 Recent Bookmarks
 .row
-  #recent-bookmarks.span12{ :"data-bookmarks" => Serialize::BookmarksSerializer.as_json(@bookmarks, current_user).to_json}
-    - # Backbone View Populates this
+  .span12
+    #announcements.span3
+      %p Mediac is still in its early stages.
+      .center
+        = link_to "We LOVE Feedback!", "#", { :"data-toggle" => "modal", :"data-target" => "#feedback-dialog" }
+        %i.icon-heart
+      -#%hr
+      -#.center
+        -#Share it with Friends!
+        -#%i.icon-thumbs-up
+      - #TODO: Render Partial of Social
+    #recent-bookmarks.span9{ :"data-bookmarks" => Serialize::BookmarksSerializer.as_json(@bookmarks, current_user).to_json}
+      - # Backbone View Populates this

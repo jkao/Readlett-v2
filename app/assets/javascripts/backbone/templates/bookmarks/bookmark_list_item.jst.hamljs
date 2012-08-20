@@ -1,6 +1,6 @@
 .bookmark{ data\-id: bookmark.attributes.id }
   .row
-    .span10
+    .span7
       %span.title-span
         :if bookmark.favicon
           %img.favicon{ src: "#{bookmark.favicon}" }
@@ -20,17 +20,17 @@
           %a.share{ href: bookmark.attributes.share_url, target: "_window", rel: "tooltip", title: "Share!" }
             %i.icon-share
   .row
-    .span12
+    .span9
       .meta
         (
         %a.url{ href: "#{bookmark.attributes.domain_url_with_scheme}", target: "_window" }= bookmark.attributes.short_domain_url
         )
         %span.date= bookmark.attributes.created_at
   .row
-    .span12
+    .span9
       .description= bookmark.attributes.short_description
   .row
-    .span3.offset9
+    .span3.offset6
       .tags
         &nbsp;
         :each tag in bookmark.attributes.tags

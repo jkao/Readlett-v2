@@ -5,8 +5,8 @@
   .row
     .span12#bookmarks-pane
       .row
-        .span3#menu
-        .span9#content{ :"data-url" => @url }
+        #menu.span3
+        #content.span9{ :"data-url" => @url }
 
 :javascript
   window.bookmarkletUrl = "#{@url}";
