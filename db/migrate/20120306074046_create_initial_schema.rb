@@ -3,7 +3,7 @@ class CreateInitialSchema < ActiveRecord::Migration
 
     create_table :bookmarks do |t|
       t.string  :title,                   :null => false, :limit => 64
-      t.string  :description
+      t.text  :description
       t.string  :link,                    :null => false
       t.integer :user_id
       t.boolean :private,                 :null => false, :default => false
@@ -17,7 +17,7 @@ class CreateInitialSchema < ActiveRecord::Migration
       t.string  :email,                    :null => false, :limit => 64
       t.string  :name
       t.string  :url
-      t.string  :description
+      t.text  :description
       t.string :disqus_uuid
       t.timestamps
     end
