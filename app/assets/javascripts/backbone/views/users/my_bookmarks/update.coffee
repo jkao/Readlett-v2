@@ -86,7 +86,7 @@ class window.UpdateMyBookmarksView extends Backbone.View
 
   # Main Client-Side URL Validator
   validateUrl: (el) ->
-    if !el.val().match(/^(https?):[/][/]([0-9a-z-])+([\.][0-9a-z]+)+([/][a-z0-9]*)*([?].*)?$/i)
+    if !el.val().match(/^(https?):[/][/]([0-9a-z-])+([\.][0-9a-z]+)+([/][a-z0-9-]*)*([?].*)?$/i)
       $("#update-messages").find(".span9 h4")
                            .html("<i class='icon-remove-sign' style='vertical-align:baseline;'></i> Looks like a badly formatted URL, buddy! (http://www.example.com)")
       $("#update-messages").addClass("red-notification")
