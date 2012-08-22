@@ -6,12 +6,13 @@ class window.BookmarkListView extends Backbone.View
     @render()
 
   render: ->
+    console.log(bookmark, @collection)
     for bookmark in @collection.models
-      if bookmark
-        bookmarkHtml = new BookmarkListItemView(
-          model: bookmark
-        ).render()
-        @$el.append(bookmarkHtml)
+      console.log(bookmark)
+      bookmarkHtml = new BookmarkListItemView(
+        model: bookmark
+      ).render()
+      @$el.append(bookmarkHtml)
     @
 
   viewData: ->
