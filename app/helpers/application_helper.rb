@@ -17,7 +17,7 @@ module ApplicationHelper
   end
 
   def bookmarklet_code
-    'javascript:window.open("http://mediac.dev/me?url=" + encodeURIComponent(window.location.href) + "&redirect=http://mediac.dev/me?url=" + encodeURIComponent(window.location.href) + "&hash=create#create");'
+    BOOKMARKLET_CODE
   end
 
 end

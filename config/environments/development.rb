@@ -45,3 +45,5 @@ GOOGLE_SECRET = "ANOcp0x61QVNeaqrHlZbcec6"
 
 TWITTER_ID = "UAtHZH83RAgwMzrKeGS9fw"
 TWITTER_SECRET = "a4DekpYZsOcqAqsuMkHORIPYuVqBw6mC6YKi2srYQ"
+
+BOOKMARKLET_CODE = 'javascript:window.open("http://mediac.dev/me?url=" + encodeURIComponent(window.location.href) + "&redirect=http://mediac.dev/me?url=" + encodeURIComponent(window.location.href) + "&hash=create#create");'

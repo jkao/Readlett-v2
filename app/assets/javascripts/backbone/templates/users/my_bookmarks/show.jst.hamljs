@@ -3,7 +3,7 @@
     .row
       .search.span4.offset5
         .input-prepend
-          %span.add-on
+          %span.add-on{ style: "margin-bottom:3px;" }
             %i.icon-search
           %input.search{ type: "text", placeholder: "Filter Bookmarks..." }
     .row

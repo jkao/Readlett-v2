@@ -17,6 +17,8 @@ class SessionsController < ApplicationController
       })
       flash[:success] = "Added Authorization Successfully!"
     else
+      Rails::Logger.info "NEW USER CREATED #{omniauth.inspect}"
+
       user = User.new({
         :name => omniauth[:info][:name],
         :email => omniauth[:info][:email]
