@@ -25,16 +25,18 @@ class window.ShowMyBookmarksView extends Backbone.View
 
   renderBookmarks: (resp) =>
     bookmarksEl = $(".bookmarks:first")
-    bookmarksEl.html("")
 
-    _.each(resp, (bookmark) =>
-      bookmarkEl = new MyBookmarksBookmarkView({
-        model: bookmark,
-        mode: "show"
-      }).render()
-      bookmarksEl.append(bookmarkEl)
-    )
-
+    if resp.length > 0
+      bookmarksEl.html("")
+      _.each(resp, (bookmark) =>
+        bookmarkEl = new MyBookmarksBookmarkView({
+          model: bookmark,
+          mode: "show"
+        }).render()
+        bookmarksEl.append(bookmarkEl)
+      )
+    else
+      bookmarksEl.html("<div class='row blue-notification'><div class='span9'><h4>Oops, looks like you don't have any bookmarks. Start saving some with the Bookmarklet!</h4></div></div>")
     @
 
   filterBookmarks: ->
