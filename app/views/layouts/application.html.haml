@@ -4,6 +4,8 @@
     %title
       #{yield(:title).empty? ? default_title : yield(:title)} | Mediac
 
+    = favicon_link_tag
+
     %meta{ :name => "description",
           :content => "Mediac is a web platform for sharing and keeping track of awesome Internet content! Never lose track of your bookmarks and discover new things to digest." }
 
@@ -22,6 +24,8 @@
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
+
+    = render :partial => "layouts/ga", :locals => { :show => Rails::env == "production" }
 
   %body{ :id => wallpaper_id }
     - if !signed_in?
