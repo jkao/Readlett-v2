@@ -11,6 +11,7 @@
       .center
         = link_to "We LOVE Feedback!", "#", { :"data-toggle" => "modal", :"data-target" => "#feedback-dialog" }
         %i.icon-heart
+        %hr
         = render :partial => "layouts/adsense_ss", :locals => { :show => Rails.env.production? }
       -#%hr
       -#.center
