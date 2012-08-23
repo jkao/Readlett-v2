@@ -1,0 +1,12 @@
+- if show
+  :javascript
+    <!--
+    google_ad_client = "ca-pub-6137629775866442";
+    /* Mediac Front */
+    google_ad_slot = "9805051703";
+    google_ad_width = 160;
+    google_ad_height = 600;
+    //-->
+  %script{ :type => "text/javascript", :src => "http://pagead2.googlesyndication.com/pagead/show_ads.js" }
+- else
+  .div{ :style => "width:160;height:600;background-color:#08C;" } [AD GOES HERE]

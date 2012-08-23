@@ -25,7 +25,7 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
 
-    = render :partial => "layouts/ga", :locals => { :show => Rails::env == "production" }
+    = render :partial => "layouts/ga", :locals => { :show => Rails.env.production? }
 
   %body{ :id => wallpaper_id }
     - if !signed_in?
